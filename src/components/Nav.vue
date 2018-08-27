@@ -26,7 +26,7 @@
         </div> -->
         <div v-responsive.xs >
             <!-- https://github.com/AshleyLv/vue-quick-menu/blob/master/src/quickMenu.vue -->
-            <quick-menu :menu-count=count :icon-class=icons :menu-url-list=list :position=position></quick-menu>
+            <quick-menu :menu-count=count :icon-class=icons :menu-url-list=list :position=position :backgroundColor=backgroundColor></quick-menu>
         </div>
     </div>
 </template>
@@ -48,9 +48,7 @@ export default {
       backgroundColor: "#1976d2",
       color: "#ffffff",
       position: "bottom-right",
-      isOpenNewTab: false,
-      isLeft: false,
-      isTop: false
+      isOpenNewTab: false
     };
   },
   components: {
