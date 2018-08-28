@@ -63,6 +63,7 @@
 import quickMenu from "vue-quick-menu";
 
 export default {
+  name: "Vue",
   data() {
     return {
       count: 3,
