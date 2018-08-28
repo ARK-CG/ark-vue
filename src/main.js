@@ -16,10 +16,6 @@ import "imagesloaded";
 import responsive from "vue-responsive";
 Vue.use(responsive);
 
-// import AtComponents from 'at-ui'
-// import 'at-ui-style'    // Import CSS
-// Vue.use(AtComponents)
-
 //https://console.firebase.google.com/
 import firebase from "firebase";
 // Initialize Firebase
