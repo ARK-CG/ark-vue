@@ -1,12 +1,6 @@
 <template>
   <div id="app">
     <Nav/>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>|
-      <router-link to="/news">News</router-link>|
-      <router-link to="/gallery">Gallery</router-link>|
-    </div> -->
     <router-view/>
   </div>
 </template>
@@ -33,7 +27,7 @@ export default {
   padding: 30px;
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #313131;
     &.router-link-exact-active {
       color: #4272b9;
     }
