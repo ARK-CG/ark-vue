@@ -16,8 +16,14 @@ import "imagesloaded";
 import responsive from "vue-responsive";
 Vue.use(responsive);
 
+//https://github.com/surmon-china/vue-awesome-swiper
+import "swiper/dist/css/swiper.css";
+import VueAwesomeSwiper from "vue-awesome-swiper";
+Vue.use(VueAwesomeSwiper);
+
 //https://console.firebase.google.com/
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/firestore";
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyARbgUiJHCXzACcE3eUb8EIXYzNCdLrQ5U",
@@ -28,6 +34,7 @@ var config = {
   messagingSenderId: "987515047211"
 };
 firebase.initializeApp(config);
+var db = firebase.firestore();
 
 Vue.config.productionTip = false;
 

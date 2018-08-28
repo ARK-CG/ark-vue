@@ -1,6 +1,6 @@
 <template>
     <div class="navigation">
-        <div v-responsive.sm.md.lg.xl >
+        <div v-responsive.xs.sm.md.lg.xl >
             <!-- https://at-ui.github.io/at-ui/#/en/docs/menu -->
             <div class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top" role="navigation">
         <div class="container">
@@ -51,10 +51,10 @@
             <at-menu-item name="4"><i class="icon icon-settings"></i>For member</at-menu-item>
             </at-menu>
         </div> -->
-        <div v-responsive.xs >
-            <!-- https://github.com/AshleyLv/vue-quick-menu/blob/master/src/quickMenu.vue -->
+        <!-- https://github.com/AshleyLv/vue-quick-menu/blob/master/src/quickMenu.vue -->
+        <!-- <div v-responsive.xs >
             <quick-menu :menu-count=count :icon-class=icons :menu-url-list=list :position=position :backgroundColor=backgroundColor></quick-menu>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -71,12 +71,11 @@ export default {
       list: [
         { isLink: true, url: "/" },
         { isLink: true, url: "/about" },
-        { isLink: false }
+        { isLink: true, url: "/gallery" }
       ],
       backgroundColor: "#1976d2",
       color: "#ffffff",
-      position: "bottom-right",
-      isOpenNewTab: false
+      position: "bottom-right"
     };
   },
   components: {

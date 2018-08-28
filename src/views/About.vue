@@ -58,10 +58,8 @@
                 </table>
             </div>
             <div class="map_wrap fade-in">
-                <div
-      id="map"
-      :style="{width: mapWidth + 'px',height: mapHeight + 'px'}"></div>
-                </div>
+                <div id="map"></div>
+            </div>
         </div>
     </div>
       <div class="member">
@@ -114,14 +112,6 @@ GoogleMapsLoader.LANGUAGE = "ja";
 export default {
   name: "Gmap",
   props: {
-    mapWidth: {
-      type: Number,
-      default: 600
-    },
-    mapHeight: {
-      type: Number,
-      default: 600
-    },
     lat: {
       type: Number,
       default: 35.780464
@@ -137,7 +127,7 @@ export default {
     markers: {
       type: Array,
       default: () => {
-        return [];
+        return [{ lat: 35.780464, lng: 139.715601 }];
       }
     }
   },
@@ -155,13 +145,12 @@ export default {
   watch: {
     markers() {
       // マーカーを全削除
-      this.formattedMarkers.forEach(marker => {
-        marker.setMap(null);
-      });
-      // propsからも削除
-      this.formattedMarkers.splice(0, this.formattedMarkers.length);
-
-      // 再描画
+      // this.formattedMarkers.forEach(marker => {
+      //   marker.setMap(null);
+      // });
+      // // propsからも削除
+      // this.formattedMarkers.splice(0, this.formattedMarkers.length);
+      // // 再描画
       this.addMarker();
     }
   },
@@ -177,32 +166,22 @@ export default {
           '<div id="content">' +
           '<div id="siteNotice">' +
           "</div>" +
-          '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+          '<h1 id="firstHeading" class="firstHeading">INIAD</h1>' +
           '<div id="bodyContent">' +
-          "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
-          "sandstone rock formation in the southern part of the " +
-          "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-          "south west of the nearest large town, Alice Springs; 450&#160;km " +
-          "(280&#160;mi) by road. Kata Tjuta and Uluru are the two major " +
-          "features of the Uluru - Kata Tjuta National Park. Uluru is " +
-          "sacred to the Pitjantjatjara and Yankunytjatjara, the " +
-          "Aboriginal people of the area. It has many springs, waterholes, " +
-          "rock caves and ancient paintings. Uluru is listed as a World " +
-          "Heritage Site.</p>" +
-          '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-          "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-          "(last visited June 22, 2009).</p>" +
+          '<p>Attribution: INIAD, <a href="https://iniad.org">' +
+          "https://iniad.org</a> " +
+          ".</p>" +
           "</div>" +
           "</div>";
 
         // マーカー
         let marker = new google.maps.Marker({
-          position: markerInfo.position,
-          icon:
-            "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-          map: this.map,
+          position: {
+            lat: 35.780464,
+            lng: 139.715601
+          },
+          map: this.map
           // ポップなアニメーションを付与
-          animation: google.maps.Animation.DROP
         });
 
         // マーカーのwindow

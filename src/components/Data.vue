@@ -29,9 +29,9 @@ export default {
   },
   methods: {
     listen() {
-      firebase
-        .firestore()
-        .ref("News/")
+      db
+        .collection("news")
+        .get()
         .on("value", snapshot => {
           if (snapshot) {
             const rootList = snapshot.val();
