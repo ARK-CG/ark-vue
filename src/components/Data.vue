@@ -30,7 +30,7 @@ export default {
   methods: {
     listen() {
       db
-        .collection("news")
+        .collection(this.title)
         .get()
         .on("value", snapshot => {
           if (snapshot) {
