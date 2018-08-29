@@ -30,7 +30,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <router-link to="/project">Project</router-link>
-                            <a class="dropdown-item" href="/">For member</a>
+                            <router-link to="/member">For member</router-link>
                         </div>
                     </li>
                 </ul>
@@ -85,6 +85,19 @@ export default {
 };
 </script>
 
+<style lang="scss" scoped>
+.nav-item {
+  a {
+    font-weight: bold;
+    color: #4b4b4b;
+    &.router-link-exact-active {
+      color: #4272b9;
+    }
+  }
+}
+</style>
+
+
 <style scoped>
 /*header*/
 #logo img {
@@ -92,7 +105,7 @@ export default {
   width: 60px;
 }
 
-li a {
+a {
   margin-right: 35px;
 }
 

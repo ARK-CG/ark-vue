@@ -23,14 +23,14 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #313131;
-    &.router-link-exact-active {
-      color: #4272b9;
-    }
-  }
-}
+// #nav {
+//   padding: 30px;
+//   a {
+//     font-weight: bold;
+//     color: #313131;
+//     &.router-link-exact-active {
+//       color: #4272b9;
+//     }
+//   }
+// }
 </style>
