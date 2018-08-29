@@ -21,21 +21,6 @@ import "swiper/dist/css/swiper.css";
 import VueAwesomeSwiper from "vue-awesome-swiper";
 Vue.use(VueAwesomeSwiper);
 
-//https://console.firebase.google.com/
-import firebase from "firebase/app";
-import "firebase/firestore";
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyARbgUiJHCXzACcE3eUb8EIXYzNCdLrQ5U",
-  authDomain: "ark-cg.firebaseapp.com",
-  databaseURL: "https://ark-cg.firebaseio.com",
-  projectId: "ark-cg",
-  storageBucket: "ark-cg.appspot.com",
-  messagingSenderId: "987515047211"
-};
-firebase.initializeApp(config);
-var db = firebase.firestore();
-
 Vue.config.productionTip = false;
 
 new Vue({

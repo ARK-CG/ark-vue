@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Swipers />
-    <Data title="News"/>
+    <Data title="News" path='news' />
   </div>
 </template>
 
