@@ -39,10 +39,10 @@ export default {
 
 <style scoped>
 .swiper-container {
-  padding: 5%;
+  padding: 2% 5%;
 }
 img {
-  height: 35vw;
+  height: 30vw;
   width: auto;
   padding-bottom: 3%;
   margin-bottom: 3%;

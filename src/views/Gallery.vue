@@ -1,6 +1,6 @@
 <template>
   <div class="gallery">
-  <Data title="Gallery" path='gallery' />
+  <Data title="Gallery" path='works' />
 </div>
 </template>
 
