@@ -44,5 +44,7 @@ export default {
 img {
   height: 35vw;
   width: auto;
+  padding-bottom: 3%;
+  margin-bottom: 3%;
 }
 </style>
