@@ -1,14 +1,18 @@
 <template>
-    <Form />
+<div class="member">
+    <NewContact />
+</div>
 </template>
 
 <script>
-import Form from "@/components/Form.vue";
+import NewContact from "@/components/NewContact.vue";
+import Test from "@/components/Test.vue";
 
 export default {
   name: "member",
   components: {
-    Form
+    NewContact,
+    Test
   }
 };
 </script>

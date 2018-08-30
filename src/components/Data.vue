@@ -10,7 +10,8 @@
                     <h3>{{item.title}}</h3>
                     <p class="sub">{{item.date}}</p>
                     <p class="text-content">{{item.context}}</p>
-                    <p>{{ item.id }}</p>
+                    <p class="text-content">Edit:{{item.timestamp}}</p>
+                    <!-- <p class="text-content">{{ item.id }}</p> -->
                 </div>
             </div>
         </div>
@@ -47,6 +48,9 @@ export default {
         // doc.data() is never undefined for query doc snapshots
         ids.push(doc.id);
         var temp = doc.data();
+        var day = new Date(temp.date.seconds * 1000).toString();
+        temp.date = moment(day).format("YYYY-MM-DD");
+        temp.timestamp = new Date(temp.timestamp.seconds * 1000).toString();
         temp.id = doc.id;
         data.push(temp);
       });

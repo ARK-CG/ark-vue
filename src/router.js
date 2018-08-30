@@ -40,15 +40,9 @@ export default new Router({
     {
       path: "/member",
       name: "member",
-      component: () => import("./views/Member.vue"),
-      meta: {
-        requiresAuth: true
-      },
-      beforeRouteEnter(to, from, next) {
-        // このコンポーネントを描画するルートが確立する前に呼ばれます。
-        // `this` でのこのコンポーネントへのアクセスはできません。
-        // なぜならばこのガードが呼び出される時にまだ作られていないからです!
-      }
+      component: () => import("./views/Member.vue")
     }
+    //404対策？
+    //https://syon.github.io/refills/rid/1500559/
   ]
 });
