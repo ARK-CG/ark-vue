@@ -138,7 +138,7 @@ export default {
         })
         .then(function(docRef) {
           console.log("Document written with ID: ", docRef.id);
-          location.href = "/gallery";
+          location.href = "/";
         })
         .catch(function(error) {
           console.error("Error adding document: ", error);
