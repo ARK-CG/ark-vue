@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Swipers />
-    <Data title="Latest work" path='gallery' :limitNum="1" />
+    <Data title="Latest work" path='works' :limitNum="1" />
     <Data title="Latest News" path='news' :limitNum="3" />
   </div>
 </template>
