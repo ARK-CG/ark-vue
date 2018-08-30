@@ -134,7 +134,8 @@ export default {
           context: this.context,
           image: this.image,
           date: date,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          posted_by: user.uid
         })
         .then(function(docRef) {
           console.log("Document written with ID: ", docRef.id);
