@@ -1,4 +1,3 @@
-console.log("load firebase init");
 //https://console.firebase.google.com/
 import firebase from "firebase/app";
 const config = {
@@ -10,4 +9,3 @@ const config = {
   messagingSenderId: "987515047211"
 };
 export const firebaseApp = firebase.initializeApp(config);
-console.log("finished firebase init");
