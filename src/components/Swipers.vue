@@ -19,6 +19,7 @@
 export default {
   name: "Swipers",
   data() {
+    console.log("swiper");
     return {
       //banners: [ '/1.jpg', '/2.jpg', '/3.jpg' ],
       swiperOption: {
