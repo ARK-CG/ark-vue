@@ -8,8 +8,9 @@
                 </div>
                 <div class="text">
                     <h3>{{item.title}}</h3>
-                    <!-- <p class="sub">{{item.date}}</p> -->
+                    <p class="sub">{{item.date}}</p>
                     <p class="text-content">{{item.context}}</p>
+                    <p>{{ item.id }}</p>
                 </div>
             </div>
         </div>
@@ -18,8 +19,8 @@
 
 <script>
 //https://console.firebase.google.com/
-import "firebase/firestore";
 import { firebaseApp } from "../firebase.init";
+import "firebase/firestore";
 var db = firebaseApp.firestore();
 db.settings({
   timestampsInSnapshots: true
@@ -28,25 +29,28 @@ export default {
   name: "Data",
   props: {
     title: String,
-    path: String
+    path: String,
+    limitNum: {
+      type: Number,
+      default: 0
+    }
   },
   data() {
     var data = [];
     var ids = [];
-    db
-      .collection(this.path)
-      .get()
-      .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-          // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", doc.data());
-          ids.push(doc.id);
-          data.push(doc.data());
-        });
-      });
-    for (x in [...Array(ids.length).keys()]) {
-      data[x]["id"] = ids[x];
+    var ref = db.collection(this.path).orderBy("date", "desc");
+    if (this.limitNum > 0) {
+      ref = ref.limit(this.limitNum);
     }
+    ref.get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        ids.push(doc.id);
+        var temp = doc.data();
+        temp.id = doc.id;
+        data.push(temp);
+      });
+    });
     return {
       list: data // 最新状態はここにコピーされる
     };

@@ -2,14 +2,11 @@
   <div class="swipers swiper-container">
         <!-- swiper -->
         <swiper :options="swiperOption">
+          <!-- <swiper-slide v-for="item in list" :key="item.id"><img :src="item.url"></swiper-slide>-->
           <swiper-slide><img src="../assets/logo.png"></swiper-slide>
-          <swiper-slide><img src="https://firebasestorage.googleapis.com/v0/b/ark-cg.appspot.com/o/works%2Fparking_underground_marking_118795_3840x2160.jpg?alt=media&token=ad428cc3-a8e0-4b6d-bb5c-fd831ea2ed7c"></swiper-slide>
-          <swiper-slide><img src="https://firebasestorage.googleapis.com/v0/b/ark-cg.appspot.com/o/works%2Fimage.png?alt=media&token=82abb0b4-2ba4-402e-9435-2b0172a97c74"></swiper-slide>
-          <swiper-slide><img src="https://firebasestorage.googleapis.com/v0/b/ark-cg.appspot.com/o/works%2Fparking_underground_marking_118795_3840x2160.jpg?alt=media&token=ad428cc3-a8e0-4b6d-bb5c-fd831ea2ed7c"></swiper-slide>
-          <swiper-slide><img src="https://firebasestorage.googleapis.com/v0/b/ark-cg.appspot.com/o/works%2Fimage.png?alt=media&token=82abb0b4-2ba4-402e-9435-2b0172a97c74"></swiper-slide>
-          <!-- <div class="swiper-slide" v-for="banner in banners" :key="banner.id">
-            <img :src="banner">
-          </div> -->
+          <swiper-slide><img src="https://pbs.twimg.com/media/DlcFfdkVAAIN_Bo.jpg"></swiper-slide>
+          <swiper-slide><img src="https://storage.googleapis.com/ark-cg.appspot.com/imgae/1534996294.3607738.jpg"></swiper-slide>
+          <swiper-slide><img src="https://pbs.twimg.com/media/DlcFfdxU0AUNqLX.jpg"></swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
   </div>
@@ -19,9 +16,8 @@
 export default {
   name: "Swipers",
   data() {
-    console.log("swiper");
     return {
-      //banners: [ '/1.jpg', '/2.jpg', '/3.jpg' ],
+      // list: data,
       swiperOption: {
         //http://idangero.us/swiper/api/
         pagination: {
