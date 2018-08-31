@@ -36,13 +36,27 @@ export default {
 </script>
 
 <style scoped>
-.swiper-container {
-  padding: 2% 5%;
+@media screen and (min-width: 767px) {
+  .swiper-container {
+    padding: 2% 5%;
+  }
+  img {
+    height: 30vw;
+    width: auto;
+    padding-bottom: 3%;
+    margin-bottom: 3%;
+  }
 }
-img {
-  height: 30vw;
-  width: auto;
-  padding-bottom: 3%;
-  margin-bottom: 3%;
+@media screen and (max-width: 767px) {
+  .swiper-container {
+    padding: 3% 3%;
+  }
+  img {
+    height: 33vh;
+    width: 66vw;
+    padding-bottom: 3%;
+    margin-bottom: 3%;
+    object-fit: cover;
+  }
 }
 </style>

@@ -10,7 +10,7 @@
                     <h3>{{item.title}}</h3>
                     <p class="sub">{{item.date}}</p>
                     <p class="text-content">{{item.context}}</p>
-                    <p class="text-content">Edit:{{item.timestamp}}</p>
+                    <p class="text-edit">Edit:{{item.timestamp}}</p>
                     <!-- <p class="text-content">{{ item.id }}</p> -->
                 </div>
             </div>
@@ -124,7 +124,11 @@ export default {
 
   .text-content {
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 16px;
+  }
+
+  .text-edit {
+    font-size: 12px;
   }
 
   .sub {
@@ -176,12 +180,16 @@ export default {
 
   .text h3 {
     display: inline-block;
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .text-content {
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 14px;
+  }
+
+  .text-edit {
+    font-size: 10px;
   }
 
   .date {

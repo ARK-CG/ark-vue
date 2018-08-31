@@ -20,7 +20,7 @@
       </div>
     </header>
     <!-- 投稿フォーム -->
-    <form v-if="user.uid" @submit.prevent="saveContact">
+    <form v-if="user.uid" @submit.prevent="saveContact" autocomplete="off">
       <div class="form-group row">
         <label for="example-url-input" class="col-2 col-form-label">投稿場所</label>
         <div class="custom-control custom-radio custom-control-inline">
@@ -110,6 +110,14 @@ export default {
       if (!user.email.match(/^[A-Za-z0-9]+[\w-]+@iniad.org$/)) {
         firebase.auth().signOut();
         alert("INIADアカウントでログインしてください");
+        user
+          .delete()
+          .then(function() {
+            console.log("User deleted.");
+          })
+          .catch(function(error) {
+            // An error happened.
+          });
       }
     });
   },
@@ -135,7 +143,7 @@ export default {
           image: this.image,
           date: date,
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-          posted_by: user.uid
+          post_by: this.user.uid
         })
         .then(function(docRef) {
           console.log("Document written with ID: ", docRef.id);
