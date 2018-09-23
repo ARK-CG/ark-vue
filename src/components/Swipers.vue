@@ -1,8 +1,8 @@
 <template>
-  <div class="swipers swiper-container">
-        <!-- swiper -->
+  <!--<div class="swipers swiper-container">
+         swiper
         <swiper :options="swiperOption">
-          <!-- <swiper-slide v-for="item in list" :key="item.id"><img :src="item.url"></swiper-slide>-->
+          <<swiper-slide v-for="item in list" :key="item.id"><img :src="item.url"></swiper-slide>
           <swiper-slide><img src="../assets/logo.png"></swiper-slide>
           <swiper-slide><img src="https://pbs.twimg.com/media/DlcFfdkVAAIN_Bo.jpg"></swiper-slide>
           <swiper-slide><img src="https://pbs.twimg.com/media/DlcFfdxU0AUNqLX.jpg"></swiper-slide>
@@ -10,7 +10,7 @@
           <swiper-slide><img src="https://firebasestorage.googleapis.com/v0/b/ark-cg.appspot.com/o/swiper%2F39025550_318120438733120_1924821303445946368_n.jpg?alt=media&token=21b5f4b8-5fae-492d-9364-f774ad3b5c4f"></swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
-  </div>
+  </div> -->
 </template>
 
 <script>

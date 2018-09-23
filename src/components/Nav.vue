@@ -1,7 +1,24 @@
 <template>
     <div class="navigation">
-        <div v-responsive.xs.sm.md.lg.xl >
-            <!-- https://at-ui.github.io/at-ui/#/en/docs/menu -->
+      <div class="common">
+        <div class="logo">
+          <a href="#">
+            <router-link  id="logo" to="/">
+              <img src="../assets/logo.png" alt="">
+            </router-link>
+          </a>
+        </div>
+
+        <div class="nav">
+          <ul>
+            <router-link class="icon icon-layers" to="/about"><li>About</li> </router-link>
+            <router-link class="icon icon-layers" to="/gallery"><li>Gallery</li> </router-link>
+            <router-link class="icon icon-layers" to="/news"><li>News</li> </router-link>
+          </ul>
+        </div>
+      </div>
+        <!--<div v-responsive.xs.sm.md.lg.xl >
+            https://at-ui.github.io/at-ui/#/en/docs/menu
             <div class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top" role="navigation">
         <div class="container">
             <router-link class="navbar-brand" id="logo" to="/">
@@ -37,7 +54,7 @@
             </div>
         </div>
     </div>
-        </div>
+  </div> -->
         <!-- <div v-responsive.sm >
             <at-menu mode="horizontal" active-name="1">
               <at-menu-item name="1"><router-link class="icon icon-home" to="/">Home</router-link></at-menu-item>
@@ -86,13 +103,40 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav-item {
-  a {
-    font-weight: bold;
-    color: #4b4b4b;
-    &.router-link-exact-active {
-      color: #4272b9;
+.navigation{
+  width: 100%;
+  padding: 0 62px;
+  background: #1F4575;
+  .common{
+    display: flex;
+    align-items: center;
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+  .logo{
+  }
+  .nav{
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      .icon{
+        color: #fff;
+        li{
+          font-size: 14px;
+          display: inline-block;
+          padding: 20px 18px;
+          transition: 0.4s;
+        }
+      }
+      .icon:hover li{
+        background: #4F74A2;
+        transition: 0.4s;
+      }
     }
+  }
+  .nav:last-of-type{
+    margin-left: auto;
   }
 }
 </style>
@@ -101,15 +145,7 @@ export default {
 <style scoped>
 /*header*/
 #logo img {
-  margin: 0 20px;
   width: 60px;
 }
 
-a {
-  margin-right: 35px;
-}
-
-.dropdown-item {
-  padding-left: 10px;
-}
 </style>

@@ -1,18 +1,75 @@
 <template>
     <div class="data">
-        <h2>{{ title }}</h2>
-        <div class="contents fade-in" v-for="item in list" :key="item.id">
+        <div class="contents fade-in">
             <div class="content">
-                <div class="img">
-                    <img :src="item.image" style="width:100%" />
+              <div class="row">
+                <div class="item">
+                  <div class="img">
+                    <img :src="list[i].image" />
+                  </div>
                 </div>
+
+                <div class="item">
+                  <div class="img">
+                    <img :src="list[i + 1].image" />
+                  </div>
+                </div>
+
+                <div class="item">
+                  <div class="img">
+                    <img :src="list[i + 3].image" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="item">
+                  <div class="img">
+                    <img :src="list[i + 2].image" />
+                  </div>
+                </div>
+
+                <div class="item">
+                  <div class="img">
+                    <img :src="list[i + 3].image" />
+                  </div>
+                </div>
+
+                <div class="item">
+                  <div class="img">
+                    <img :src="list[i + 2].image" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="item">
+                  <div class="img">
+                    <img :src="list[i + 3].image" />
+                  </div>
+                </div>
+
+                <div class="item">
+                  <div class="img">
+                    <img :src="list[i + 1].image" />
+                  </div>
+                </div>
+
+                <div class="item">
+                  <div class="img">
+                    <img :src="list[i + 3].image" />
+                  </div>
+                </div>
+              </div>
+                <!--
                 <div class="text">
                     <h3>{{item.title}}</h3>
                     <p class="sub">{{item.date}}</p>
                     <p class="text-content">{{item.context}}</p>
                     <p class="text-edit">Edit:{{item.timestamp}}</p>
-                    <!-- <p class="text-content">{{ item.id }}</p> -->
+                    <p class="text-content">{{ item.id }}</p>
                 </div>
+              -->
             </div>
         </div>
     </div>
@@ -56,7 +113,9 @@ export default {
       });
     });
     return {
-      list: data // 最新状態はここにコピーされる
+      list: data ,// 最新状態はここにコピーされる
+      step: 3,
+      i : 0
     };
   },
   methods: {}
@@ -82,26 +141,31 @@ export default {
     display: none;
   }
 
+  .row{
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 65px;
+  }
+
   .img {
     text-align: right;
-    display: inline-block;
-    width: 180px;
+    width: 230px;
     border: solid 0.5px rgba(0, 0, 0, 0.3);
   }
 
+  .img img{
+    width: 100%;
+    display: block;
+  }
+
   .content .text {
-    display: inline-block;
-    vertical-align: middle;
-    max-width: 65%;
-    margin-top: 30px;
-    margin-left: 30px;
   }
 
   .content {
-    width: 95%;
     margin: 10px auto 0px;
     padding: 20px 0;
-    overflow: hidden;
   }
 
   .news h2 {
@@ -112,9 +176,7 @@ export default {
   }
 
   .contents {
-    background: #fff;
-    width: 90%;
-    margin: 0 auto 30px;
+    margin: 0 auto 0px;
   }
 
   .text h3 {
