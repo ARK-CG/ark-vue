@@ -1,16 +1,16 @@
 <template>
   <div class="news">
-  <Data title="News" path='news'/>
+  <DataNews title="News" path='news'/>
 </div>
 </template>
 
 <script>
-import Data from "@/components/Data.vue";
+import DataNews from "@/components/DataNews.vue";
 
 export default {
   name: "News",
   components: {
-    Data
+    DataNews
   },
   methods: {}
 };
