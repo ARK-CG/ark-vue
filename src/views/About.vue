@@ -1,5 +1,6 @@
 <template>
 <div class="about">
+  <div class="template">
     <div class="eyecatch">
         <img src="../assets/eye.jpg" alt="" width="100%">
         <p>わたし達はたくさんの作品を作っています。</p>
@@ -99,6 +100,7 @@
 
             </div>
         </div>
+    </div>
     </div>
   </div>
 </template>
@@ -233,6 +235,19 @@ h2 {
 
 .text {
   display: inline-block;
+}
+
+.template{
+  max-width: 1024px;
+  padding-bottom: 100px;
+  margin: 0 auto;
+  padding:30px;
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
+}
+
+.about {
+  background: #F1F1F1;
+  color: #555;
 }
 
 @media screen and (min-width: 767px) {
@@ -433,7 +448,7 @@ h2 {
 footer {
   width: 100%;
   height: 120px;
-  background: #1e1e1e;
+  background: #1afafa;
   margin-top: 70px;
 }
 </style>

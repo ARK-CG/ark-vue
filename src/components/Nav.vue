@@ -14,6 +14,8 @@
             <router-link class="icon icon-layers" to="/about"><li>About</li> </router-link>
             <router-link class="icon icon-layers" to="/gallery"><li>Gallery</li> </router-link>
             <router-link class="icon icon-layers" to="/news"><li>News</li> </router-link>
+            <router-link class="icon icon-layers" to="/member"><li>For member</li> </router-link>
+
           </ul>
         </div>
       </div>
@@ -106,7 +108,7 @@ export default {
 .navigation{
   width: 100%;
   padding: 0 62px;
-  background: #1F4575;
+  background: #1B324F;
   .common{
     display: flex;
     align-items: center;
@@ -121,7 +123,7 @@ export default {
       margin: 0;
       padding: 0;
       .icon{
-        color: #fff;
+        color: #fafafa;
         li{
           font-size: 14px;
           display: inline-block;
@@ -130,7 +132,7 @@ export default {
         }
       }
       .icon:hover li{
-        background: #4F74A2;
+        background: #d0d0d0;
         transition: 0.4s;
       }
     }

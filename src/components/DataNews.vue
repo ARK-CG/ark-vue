@@ -1,63 +1,17 @@
 <template>
     <div class="data">
+      <h2>News</h2>
         <div class="contents fade-in">
             <div class="content">
-              <div class="row">
+              <div class="row" v-for="item in list" :key="item.id">
                 <div class="item">
                   <div class="img">
-                    <img :src="list[i].image" />
+                    <img :src="item.image" />
                   </div>
-                </div>
-
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 1].image" />
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 3].image" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 2].image" />
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 3].image" />
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 2].image" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 3].image" />
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 1].image" />
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 3].image" />
+                  <div class="text">
+                    <p class="date">Date:{{item.date}}</p>
+                    <h3>{{item.title}}</h3>
+                    <p class="context">{{item.context}}</p>
                   </div>
                 </div>
               </div>
@@ -141,17 +95,31 @@ export default {
     display: none;
   }
 
+  .data h2{
+    font-size: 28px;
+    text-align: left;
+    display: block;
+    margin: 0;
+  }
+
+  .contents{
+    margin-top: 32px;
+  }
+
   .row {
-    max-width: 800px;
-    display: flex;
-    justify-content: space-between;
     margin: 0 auto;
-    margin-bottom: 65px;
+    margin-bottom: 25px;
+    background: #fff;
+    padding: 15px;
+  }
+
+  .item{
+    display: flex;
+    align-items: center;
   }
 
   .img {
-    text-align: right;
-    width: 230px;
+    width: 200px;
     border: solid 0.5px rgba(0, 0, 0, 0.3);
   }
 
@@ -160,45 +128,38 @@ export default {
     display: block;
   }
 
-  .content .text {
-  }
-
-  .content {
-    margin: 10px auto 0px;
-    padding: 20px 0;
-  }
-
-  .news h2 {
-    width: 90%;
-    margin: 0px auto 30px;
-    padding-top: 50px;
-    font-weight: lighter;
-  }
-
-  .contents {
-    margin: 0 auto 0px;
+  .text{
+    flex: 1;
+    margin-left: 35px;
+    text-align: left;
+    max-width: 800px;
   }
 
   .text h3 {
-    display: inline-block;
     font-size: 18px;
+    font-weight: bold;
   }
 
-  .text-content {
-    margin-top: 10px;
-    font-size: 16px;
-  }
-
-  .text-edit {
-    font-size: 12px;
-  }
-
-  .sub {
-    display: inline-block;
+  .text p{
+    margin: 0;
+    text-align: left;
     font-size: 14px;
-    color: #808080;
-    margin: 0 0 0 20px;
   }
+
+  .text .date{
+    color: #888;
+    display: block;
+    text-align: left;
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+
+  .text .context{
+    line-height: 180%;
+  }
+
+
+
 }
 
 @media screen and (max-width: 767px) {
@@ -215,7 +176,6 @@ export default {
     margin: 0px auto 30px;
     padding-top: 50px;
     font-weight: lighter;
-    text-align: center;
     font-size: 24px;
   }
 

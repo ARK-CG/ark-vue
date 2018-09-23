@@ -150,7 +150,6 @@ export default {
   }
 
   .img {
-    text-align: right;
     width: 230px;
     border: solid 0.5px rgba(0, 0, 0, 0.3);
   }
@@ -164,7 +163,7 @@ export default {
   }
 
   .content {
-    margin: 10px auto 0px;
+    margin: 0px auto 0px;
     padding: 20px 0;
   }
 
