@@ -1,100 +1,107 @@
 <template>
 <div class="about">
   <div class="template">
-    <div class="eyecatch">
-        <img src="../assets/eye.jpg" alt="" width="100%">
-        <p>わたし達はたくさんの作品を作っています。</p>
-    </div>
     <div class="content">
-        <div class="row">
-            <div class="col-12 col-md-6 fade-in left">
-                <div class="category">
-                    <h3>3D CG</h3>
-                    <p>当サークルのメイン活動内容となっている 3DCGはメンバー個人個人がそれぞれのソフトを使いたくさんの作品を出しています。 基本的には個人作業ですが、サークル全体で撮影なども行っています。
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 fade-in right">
-                <div class="category">
-                    <h3>イラストレーション</h3>
-                    <p>この分野は得意なメンバーが各々の好きなイラストを描いています。またそのイラストをモデリングをする試みも行われています。</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12 col-md-6 fade-in left">
-                <div class="category">
-                    <h3>webアプリケーション</h3>
-                    <p>webアプリケーションは2018年から始まったプロジェクトです。エンジニアコースやデザインコースのメンバーが協力してサービスを作っています。</p>
-                </div>
-            </div>
-        </div>
+      <div class="content-title">
+        <h1>Aout us</h1>
+        <p>ARKについて</p>
+      </div>
+      <p>テキストが入りますテキストが入りますテキストが入りますテキストが入ります
+      テキストが入りますテキストが入りますテキストが入りますテキストが入ります
+    テキストが入りますテキストが入りますテキストが入りますテキストが入ります
+  テキストが入りますテキストが入りますテキストが入りますテキストが入ります</p>
     </div>
 
-    <div class="ex">
-        <div class="ex2">
-            <h2 class="fade-in">サークル概要</h2>
-            <div class="text fade-in">
-                <table>
-                    <tr>
-                        <td>サークル名</td>
-                        <td>[ARK] CG・映像制作サークル</td>
-                    </tr>
-                    <tr>
-                        <td>アドレス</td>
-                        <td>〒115-0053
-                            <br>東京都北区赤羽台1-7-11</td>
-                    </tr>
-                    <tr>
-                        <td>アクセス</td>
-                        <td>赤羽駅西口から徒歩10分
-                            <br />赤羽台岩渕駅から徒歩12分</td>
-                    </tr>
-                    <tr>
-                        <td>部員数</td>
-                        <td>20人</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="map_wrap fade-in">
-                <div id="map"></div>
-            </div>
-        </div>
+    <div class="content">
+      <div class="content-title">
+        <h1>Activity</h1>
+        <p>活動内容</p>
+      </div>
+      <div class="item">
+        <h2>3DCG</h2>
+        <p>当サークルのメイン活動内容となっている3DCGはメンバー個人個人がそれぞれのソフトを使いたくさんの作品を出しています。<br />
+          基本的には個人作業ですが、サークル全体で撮影なども行っています。</p>
+      </div>
+
+      <div class="item">
+        <h2>イラストレーション</h2>
+        <p>この分野は得意なメンバーが各々の好きなイラストを描いています。<br />
+          またそのイラストをモデリングをする試みも行われています。</p>
+      </div>
+
+      <div class="item">
+        <h2>webアプリケーション</h2>
+        <p>webアプリケーションは2018年から始まったプロジェクトです。<br />
+          エンジニアコースやデザインコースのメンバーが協力してサービスを作っています。</p>
+      </div>
     </div>
-      <div class="member">
-        <h2 class="fade-in">メンバー紹介</h2>
+
+    <div class="content">
+      <div class="content-title">
+        <h1>Infomation</h1>
+        <p>サークル概要</p>
+      </div>
+      <div class="text fade-in">
+          <table>
+              <tr>
+                  <td>サークル名</td>
+                  <td>[ARK] CG・映像制作サークル</td>
+              </tr>
+              <tr>
+                  <td>アドレス</td>
+                  <td>〒115-0053
+                      <br>東京都北区赤羽台1-7-11</td>
+              </tr>
+              <tr>
+                  <td>アクセス</td>
+                  <td>赤羽駅西口から徒歩10分
+                      <br />赤羽台岩渕駅から徒歩12分</td>
+              </tr>
+              <tr>
+                  <td>部員数</td>
+                  <td>20人</td>
+              </tr>
+          </table>
+      </div>
+
+      <div class="map_wrap fade-in">
+          <div id="map"></div>
+      </div>
+    </div>
+      <div class="member content">
+        <div class="content-title">
+          <h1 class="fade-in">Member</h1>
+          <p>メンバー紹介</p>
+        </div>
         <div class="content">
             <div class="row">
                 <div class="col-12 col-md-4 left">
                     <div class="prf fade-in">
                         <img src="../assets/Yaegashi.jpg" style="width:100%" alt="">
-                        <p class="position">会長</p>
-                        <p class="name">堀米崇</p>
-                        <p class="explain">デザインコース所属
-                            <br>2017年サークルを創立。
-                            <br>モデリングが出来ます。</p>
+                        <div class="info">
+                          <p class="name">Takashi Horigome</p>
+                          <p class="position">President</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-4 center">
                     <div class="prf fade-in">
                         <img src="../assets/Yaegashi.jpg" style="width:100%" alt="">
-                        <p class="position">副会長</p>
-                        <p class="name">石出港士</p>
-                        <p class="explain">エンジニアコース所属
-                            <br>サーバーの知識がすごい人。</p>
+                        <div class="info">
+                          <p class="name">Koshi Iside</p>
+                          <p class="position">Vice-president</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-4 right">
                     <div class="prf fade-in">
                         <img src="../assets/Yaegashi.jpg" style="width:100%" alt="">
-                        <p class="position">広報長</p>
-                        <p class="name">八重樫建成</p>
-                        <p class="explain">デザインコース所属
-                            <br>インターフェースに詳しい人。</p>
+                        <div class="info">
+                          <p class="name">Knesei Yaegashi</p>
+                          <p class="position">Boss in PR</p>
+                        </div>
                     </div>
                 </div>
 
@@ -229,8 +236,31 @@ export default {
   width: 100%;
 }
 
-h2 {
+h1 {
   font-size: 24px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.content .content-title p{
+  font-size: 14px;
+  color: #999;
+  display: inline-block;
+  margin-left: 28px;
+}
+
+.content .item{
+  margin-bottom: 40px;
+}
+
+h2{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.content p{
+  font-size: 14px;
+  line-height: 180%;
 }
 
 .text {
@@ -251,10 +281,6 @@ h2 {
 }
 
 @media screen and (min-width: 767px) {
-  .eyecatch p {
-    color: #fff;
-  }
-
   .content {
     width: 100%;
     margin-top: 50px;
@@ -277,40 +303,12 @@ h2 {
     padding-left: 20px;
   }
 
-  .category {
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .category h3 {
-    font-size: 18px;
-  }
-
-  .category p {
-    font-size: 14px;
-    margin-bottom: 70px;
-    line-height: 200%;
-    padding-right: 40px;
-  }
-
-  .ex {
-    width: 100%;
-    background: #ecf0f1;
-    padding: 30px 0 50px 0;
-  }
-
-  .ex2 {
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  .ex2 h2 {
-    margin: 20px auto;
-  }
 
   td {
-    padding: 20px 40px 20px 0;
+    padding: 10px 40px 10px 0;
     vertical-align: top;
+    font-size: 14px;
+    line-height: 140%;
   }
 
   .map_wrap {
@@ -323,14 +321,36 @@ h2 {
     height: 400px;
   }
 
-  .member h2 {
-    width: 80%;
-    margin: 50px auto;
-  }
-
   .member {
+    background: transparent;
     margin-bottom: 100px;
   }
+
+  .prf{
+    position: relative;
+  }
+
+  .info{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 10px;
+  }
+
+  .info p{
+    margin: 0 10px;
+    color: #fff;
+  }
+
+  .info .name{
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .info .position{
+    font-size: 10px;
+  }
+
 
   .right {
     padding: 0 0 0 20px;
@@ -342,19 +362,6 @@ h2 {
 
   .left {
     padding: 0 20px 0 0;
-  }
-
-  .position {
-    text-align: center;
-    margin: 5px auto;
-  }
-
-  .name {
-    margin: 0 auto;
-  }
-
-  .explain {
-    margin: 5px 0 auto;
   }
 }
 

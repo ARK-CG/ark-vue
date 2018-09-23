@@ -132,7 +132,7 @@ export default {
         }
       }
       .icon:hover li{
-        background: #d0d0d0;
+        background: #2E435E;
         transition: 0.4s;
       }
     }

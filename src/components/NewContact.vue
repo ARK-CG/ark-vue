@@ -27,6 +27,7 @@
               <label class="login-label" for="password">パスワード</label>
               <input type="text" name="" value="" id="password" class="login-input">
             </div>
+            <p class="attention">*当サークルメンバーのみが<br />利用できるようになっております</p>
             <div class="button">
               <p>ログインする</p>
             </div>
@@ -193,6 +194,14 @@ export default {
 
 <style scoped>
 /*未ログイン状態*/
+.attention{
+  max-width: 1024px;
+  margin: 0 auto;
+  text-align: left;
+  color: red;
+  font-size: 10px;
+  margin: 0 auto 5px;
+}
 .login-form{
   display: inline-block;
   margin: 0px auto;
@@ -217,7 +226,7 @@ export default {
   cursor: pointer;
   color: #1F4575;
   font-weight: bold;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .login-form .button:hover{
