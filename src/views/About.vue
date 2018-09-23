@@ -64,6 +64,8 @@
           </table>
       </div>
 
+      <hr>
+
       <div class="map_wrap fade-in">
           <div id="map"></div>
       </div>
@@ -240,6 +242,10 @@ h1 {
   font-size: 24px;
   display: inline-block;
   font-weight: bold;
+}
+
+.content{
+  text-align: left;
 }
 
 .content .content-title p{
@@ -452,10 +458,4 @@ h2{
   }
 }
 
-footer {
-  width: 100%;
-  height: 120px;
-  background: #1afafa;
-  margin-top: 70px;
-}
 </style>
