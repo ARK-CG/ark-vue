@@ -79,7 +79,7 @@
           <p>必須</p>
         </div>
         <div class="form-item">
-          <input type="text" value="Artisanal kale" id="example-text-input" v-model="context" class="text-form" required>
+          <textarea name="name" rows="8" cols="80" id="example-text-input" v-model="context" class="text-form" required value="Artisanal kale"></textarea>
         </div>
       </div>
 

@@ -17,26 +17,6 @@
 
                 <div class="item">
                   <div class="img">
-                    <img :src="list[i + 3].image" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 2].image" />
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 3].image" />
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="img">
                     <img :src="list[i + 2].image" />
                   </div>
                 </div>
@@ -46,6 +26,12 @@
                 <div class="item">
                   <div class="img">
                     <img :src="list[i + 3].image" />
+                  </div>
+                </div>
+
+                <div class="item">
+                  <div class="img">
+                    <img :src="list[i].image" />
                   </div>
                 </div>
 
@@ -54,10 +40,24 @@
                     <img :src="list[i + 1].image" />
                   </div>
                 </div>
+              </div>
+
+              <div class="row">
+                <div class="item">
+                  <div class="img">
+                    <img :src="list[i + 2].image" />
+                  </div>
+                </div>
 
                 <div class="item">
                   <div class="img">
                     <img :src="list[i + 3].image" />
+                  </div>
+                </div>
+
+                <div class="item">
+                  <div class="img">
+                    <img :src="list[i].image" />
                   </div>
                 </div>
               </div>
@@ -146,7 +146,7 @@ export default {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    margin-bottom: 65px;
+    margin-bottom: 45px;
   }
 
   .img {

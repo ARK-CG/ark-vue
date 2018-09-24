@@ -6,10 +6,8 @@
         <h1>Aout us</h1>
         <p>ARKについて</p>
       </div>
-      <p>テキストが入りますテキストが入りますテキストが入りますテキストが入ります
-      テキストが入りますテキストが入りますテキストが入りますテキストが入ります
-    テキストが入りますテキストが入りますテキストが入りますテキストが入ります
-  テキストが入りますテキストが入りますテキストが入りますテキストが入ります</p>
+      <p class="about">映像制作コンピュータエンジニアリング、グラフィックスデザイン及びインターフェースデザインその他に興味を持った現役大学生の団体です。
+        <br />昨今のデジタルコンテンツ市場の拡大に伴う高度なCG技術やコンピュータ処理、その知識と教養を養うべく日々活動をしています。</p>
     </div>
 
     <div class="content">
@@ -17,22 +15,38 @@
         <h1>Activity</h1>
         <p>活動内容</p>
       </div>
-      <div class="item">
-        <h2>3DCG</h2>
-        <p>当サークルのメイン活動内容となっている3DCGはメンバー個人個人がそれぞれのソフトを使いたくさんの作品を出しています。<br />
-          基本的には個人作業ですが、サークル全体で撮影なども行っています。</p>
+      <div class="item odd">
+        <div class="texts">
+          <h2>3DCG</h2>
+          <p>当サークルのメイン活動内容となっている3DCGはメンバー個人個人がそれぞれのソフトを使いたくさんの作品を出しています。<br />
+            基本的には個人作業ですが、サークル全体で撮影なども行っています。</p>
+        </div>
+        <div class="img">
+          <img src="../assets/carmodel.png" alt="">
+        </div>
       </div>
 
-      <div class="item">
-        <h2>イラストレーション</h2>
-        <p>この分野は得意なメンバーが各々の好きなイラストを描いています。<br />
-          またそのイラストをモデリングをする試みも行われています。</p>
+      <div class="item even">
+        <div class="img">
+          <img src="../assets/carmodel.png" alt="">
+        </div>
+        <div class="texts">
+          <h2>イラストレーション</h2>
+          <p>この分野は得意なメンバーが各々の好きなイラストを描いています。<br />
+            またそのイラストをモデリングをする試みも行われています。</p>
+        </div>
+
       </div>
 
-      <div class="item">
-        <h2>webアプリケーション</h2>
-        <p>webアプリケーションは2018年から始まったプロジェクトです。<br />
-          エンジニアコースやデザインコースのメンバーが協力してサービスを作っています。</p>
+      <div class="item odd">
+        <div class="texts">
+          <h2>webアプリケーション</h2>
+          <p>webアプリケーションは2018年から始まったプロジェクトです。<br />
+            エンジニアコースやデザインコースのメンバーが協力してサービスを作っています。</p>
+        </div>
+        <div class="img">
+          <img src="../assets/carmodel.png" alt="">
+        </div>
       </div>
     </div>
 
@@ -226,7 +240,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .fade-in {
   transition: opacity 0.4s;
   -moz-transition: opacity 0.4s;
@@ -238,36 +252,67 @@ export default {
   width: 100%;
 }
 
-h1 {
-  font-size: 24px;
-  display: inline-block;
-  font-weight: bold;
-}
-
 .content{
   text-align: left;
+  .about{
+    font-size: 14px;
+    line-height: 180%;
+  }
+  .content-title{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    h1 {
+      font-size: 24px;
+      display: inline-block;
+      font-weight: bold;
+      margin: 0;
+    }
+    p{
+      font-size: 14px;
+      color: #999;
+      display: inline-block;
+      margin-left: 28px;
+      margin-bottom: 0;
+    }
+  }
+  .item{
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    .img{
+      width: 400px;
+      padding: 10px;
+      border: solid 0.8px #ccc;
+      img{
+        width: 100%;
+      }
+    }
+    .texts{
+      flex: 1;
+      h2{
+        font-size: 20px;
+        font-weight: bold;
+      }
+      p{
+        font-size: 14px;
+        display: inline-block;
+        line-height: 180%;
+      }
+    }
+  }
+  .odd{
+    .texts{
+      margin-right: 40px;
+    }
+  }
+  .even{
+    .texts{
+      margin-left: 40px;
+    }
+  }
 }
 
-.content .content-title p{
-  font-size: 14px;
-  color: #999;
-  display: inline-block;
-  margin-left: 28px;
-}
-
-.content .item{
-  margin-bottom: 40px;
-}
-
-h2{
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.content p{
-  font-size: 14px;
-  line-height: 180%;
-}
 
 .text {
   display: inline-block;
@@ -282,7 +327,7 @@ h2{
 }
 
 .about {
-  background: #F1F1F1;
+  background: #FaFaFa;
   color: #555;
 }
 
