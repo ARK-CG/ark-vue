@@ -74,7 +74,7 @@
         </div>
       </div>
       <div class="item">
-        <div class="item-title">
+        <div class="item-title pic-form">
           <label for="example-text-input" >説明</label>
           <p>必須</p>
         </div>
@@ -373,8 +373,18 @@ h1{
   border: solid 0.8px #ccc;
   border-radius: 5px;
   height: 32px;
-  padding: 0 8px;
+  padding: 3px 8px;
   font-size: 14px;
+}
+
+.form-item textarea{
+  width: 100%;
+  border: solid 0.8px #ccc;
+  border-radius: 5px;
+  height: 95px;
+  padding: 3px 8px;
+  font-size: 14px;
+  line-height: 160%;
 }
 
 /*ラジオボタン*/

@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <div class="eyecatch">
-    </div>
 
     <div class="intro">
       <div class="text">
@@ -17,40 +15,39 @@
         <table>
           <tr>
             <td>
-              <img src="../assets/eyecatch.jpg" alt="">
+              <img src="../assets/carmodel.png" alt="">
             </td>
             <td>
-              <img src="../assets/eyecatch.jpg" alt="">
+              <img src="../assets/carmodel.png" alt="">
             </td>
           </tr>
           <tr>
             <td>
-              <img src="../assets/eyecatch.jpg" alt="">
+              <img src="../assets/carmodel.png" alt="">
             </td>
             <td>
-              <img src="../assets/eyecatch.jpg" alt="">
+              <img src="../assets/carmodel.png" alt="">
             </td>
           </tr>
         </table>
       </div>
     </div>
-    <div class="template">
-      <Data title="Latest work" path='works' :limitNum="9" />
-      <DataNews title="Latest News" path='news' :limitNum="3" />
-    </div>
+
+    <TopNews title="Latest News" path='news' :limitNum="1" />
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Swipers from "@/components/Swipers.vue";
-import DataNews from "@/components/DataNews.vue";
+import TopNews from "@/components/TopNews.vue";
 
 export default {
   name: "home",
   components: {
     Swipers,
-    DataNews
+    TopNews
   }
 };
 </script>
@@ -61,14 +58,15 @@ export default {
   max-width: 800px;
   margin: 60px auto;
   height: 400px;
-  background-image: url("../assets/eyecatch.jpg");
+  background-image: url("../assets/carmodel.png");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .intro{
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0px auto;
+  padding: 40px 0 0;
   display: flex;
   align-items: center;
 }
@@ -124,11 +122,11 @@ export default {
 }
 
 .intro .table{
-  margin: 0;
+  margin-left: auto;
 }
 
 .table table{
-  margin: 0 auto;
+  margin-left: auto;
 }
 
 .table table td{
