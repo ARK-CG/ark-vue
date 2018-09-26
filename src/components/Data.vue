@@ -1,7 +1,7 @@
 <template>
     <div class="data">
       <h1>Gallrey</h1>
-        <div class="contents fade-in">
+        <div class="contents fade-in big">
           <div class="collum first">
             <table>
               <tr v-for="item in list.length" :key="item.id">
@@ -50,77 +50,72 @@
               </tr>
             </table>
           </div>
-          <!--
-            <div class="content">
-              <div class="row">
-                <div class="item">
+        </div>
+
+        <div class="contents fade-in md">
+          <div class="collum first">
+            <table>
+              <tr v-for="item in list.length" :key="item.id">
+                <div v-if="list[item]">
                   <div class="img">
-                    <img :src="list[i].image" />
+                    <td><img :src="list[item].image" /></td>
+                  </div>
+                </div>
+              </tr>
+            </table>
+          </div>
+
+          <div class="collum second">
+            <table>
+              <tr v-for="(item) in list.length" :key="item.id">
+                <div v-if="list[item]">
+                  <div class="img">
+                    <td><img :src="list[item].image" /></td>
                   </div>
                 </div>
 
-                <div class="item">
+              </tr>
+            </table>
+          </div>
+
+          <div class="collum third">
+            <table>
+              <tr v-for="(item) in list.length" :key="item.id">
+                <div v-if="list[item + 1]">
                   <div class="img">
-                    <img :src="list[i + 1].image" />
+                    <td><img :src="list[item + 1].image" /></td>
+                  </div>
+                </div>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="contents fade-in small">
+          <div class="collum first">
+            <table>
+              <tr v-for="item in list.length" :key="item.id">
+                <div v-if="list[item]">
+                  <div class="img">
+                    <td><img :src="list[item].image" /></td>
+                  </div>
+                </div>
+              </tr>
+            </table>
+          </div>
+
+          <div class="collum second">
+            <table>
+              <tr v-for="(item) in list.length" :key="item.id">
+                <div v-if="list[item]">
+                  <div class="img">
+                    <td><img :src="list[item].image" /></td>
                   </div>
                 </div>
 
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 2].image" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 3].image" />
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i].image" />
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 1].image" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 2].image" />
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i + 3].image" />
-                  </div>
-                </div>
-
-                <div class="item">
-                  <div class="img">
-                    <img :src="list[i].image" />
-                  </div>
-                </div>
-              </div>
-
-                <div class="text">
-                    <h3>{{item.title}}</h3>
-                    <p class="sub">{{item.date}}</p>
-                    <p class="text-content">{{item.context}}</p>
-                    <p class="text-edit">Edit:{{item.timestamp}}</p>
-                    <p class="text-content">{{ item.id }}</p>
-                </div>
-            </div>
-          -->
+              </tr>
+            </table>
+          </div>
         </div>
     </div>
 </template>
@@ -172,16 +167,27 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  .big{
+    display: flex;
+  }
+
+  .md{
+    display: none;
+  }
+
+  .small{
+    display: none;
+  }
+
 h1{
   text-align: left;
   font-size: 28px;
 }
 .contents{
   justify-content: space-between;
-  display: flex;
   .collum{
     table{
-      width: 220px;
+      max-width: 220px;
       .img{
         margin: 15px 8px;
       }
@@ -196,7 +202,74 @@ h1{
   }
 }
 
-/*media-query*/
 
+@media screen and (max-width: 920px){
+    .big{
+      display: none;
+    }
+    .small {
+      display: none;
+    }
+    .md{
+      display: flex;
+    }
+
+    .contents{
+      max-width: 700px;
+      margin: 0 auto;
+      justify-content: space-between;
+      .collum{
+        table{
+          max-width: 220px;
+          .img{
+            margin: 15px 8px;
+          }
+          td{
+            padding: 8px;
+            border: solid 0.8px #ccc;
+            img{
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+
+}
+/*media-query*/
+@media screen and (max-width: 697px) {
+  .big{
+    display: none;
+  }
+  .small {
+    display: flex;
+  }
+
+  .md{
+    display: none;
+  }
+
+  .contents{
+    max-width: 450px;
+    margin: 0 auto;
+    justify-content: space-between;
+    .collum{
+      table{
+        max-width: 220px;
+        .img{
+          margin: 10px 8px;
+        }
+        td{
+          padding: 8px;
+          border: solid 0.8px #ccc;
+          img{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
 
 </style>
