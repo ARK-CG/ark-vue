@@ -194,6 +194,14 @@ export default {
 
 <style scoped>
 /*未ログイン状態*/
+@media screen and (min-width: 767px) {
+  .big {
+    display: block;
+  }
+
+  .small{
+    display: none;
+  }
 .attention{
   max-width: 1024px;
   margin: 0 auto;
@@ -339,7 +347,8 @@ h1{
 }
 
 .item-title{
-  width: 200px;
+  width: 180px;
+  margin-right: 20px;
   text-align: left;
   align-items: center;
   display: flex;
@@ -521,5 +530,347 @@ p{
   font-size: 14px;
   font-weight: bold;
   font-family: "Roboto", arial, sans-serif;
+}
+
+}
+
+@media screen and (max-width: 767px) {
+  .big{
+    display: none;
+  }
+  .small {
+    display: block;
+  }
+
+.attention{
+  max-width: 1024px;
+  margin: 0 auto;
+  text-align: left;
+  color: red;
+  font-size: 10px;
+  margin: 0 auto 5px;
+}
+.login-form{
+  display: inline-block;
+  margin: 0px auto;
+  background: #fff;
+  padding: 15px 22px;
+  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  white-space: nowrap;
+}
+.login-item{
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.login-form .button{
+  border: solid 1.5px #1F4575;
+  border-radius: 5px;
+  padding: 2px 8px;
+  background: transparent;
+  transition: 0.4s;
+  width: 100%;
+  cursor: pointer;
+  color: #1F4575;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.login-form .button:hover{
+  background:#1F4575;
+  transition: 0.4s;
+  color: #fff;
+  transition: 0.4s;
+}
+
+.login-label{
+  font-size: 14px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.login-input{
+  border: solid 0.8px #ccc;
+  border-radius: 5px;
+  height: 28px;
+  padding: 0 8px;
+  font-size: 14px;
+}
+
+.deco p{
+  margin: 0;
+  color: #ccc;
+  font-size: 12px;
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+  display: inline-block;
+}
+
+.deco p::before{
+  content: "";
+  border: solid #ccc 0.5px;
+  position: absolute;
+  width: 60px;
+  left: -70px;
+  top: 9px;
+}
+
+.deco p::after{
+  content: "";
+  border: solid #ccc 0.5px;
+  position: absolute;
+  width: 60px;
+  right: -70px;
+  top: 9px;
+}
+
+h1{
+  font-size: 28px;
+  display: inline-block;
+  text-align: left;
+  font-weight: bold;
+}
+
+.user{
+  text-align: right;
+}
+.user p{
+  display: block;
+  font-weight: bold;
+}
+
+.user .name{
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.user .logout{
+  border: solid 1.5px #1F4575;
+  border-radius: 5px;
+  padding: 5px 8px;
+  background: transparent;
+  transition: 0.4s;
+}
+
+.user .logout:hover{
+  background:#1F4575;
+  transition: 0.4s;
+}
+
+.user .logout p{
+  color: #1F4575;
+  transition: 0.4s;
+  font-size: 14px;
+}
+
+.user .logout:hover p{
+  color: #fff;
+  transition: 0.4s;
+}
+
+.header {
+  margin-bottom: 2em;
+  padding: 0.4em 0.8em;
+}
+
+.header btn-logout {
+  color: white;
+  background-color: #5c5c5c;
+}
+
+.item{
+    display: block;
+    margin: 25px 0;
+}
+
+.item-title{
+  width: 180px;
+  margin-right: 20px;
+  margin-bottom: 18px;
+  text-align: left;
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+}
+
+.item-title label{
+}
+
+.item-title p{
+  background: #E5000B;
+  color: #fff;
+  font-size: 8px;
+  border-radius: 4px;
+  padding: 5px 8px;
+  margin-left: 15px;
+}
+
+.item .pic-form{
+  display: flex;
+  align-items: flex-start;
+}
+
+.form-item{
+  flex: 1;
+  text-align: left;
+}
+
+.text-form{
+  width: 100%;
+  border: solid 0.8px #ccc;
+  border-radius: 5px;
+  height: 32px;
+  padding: 3px 8px;
+  font-size: 14px;
+}
+
+.form-item textarea{
+  width: 100%;
+  border: solid 0.8px #ccc;
+  border-radius: 5px;
+  height: 95px;
+  padding: 3px 8px;
+  font-size: 14px;
+  line-height: 160%;
+}
+
+/*ラジオボタン*/
+.radio{
+  display: none;
+}
+
+.radio + .reradio{
+  padding-left: 25px;
+  position:relative;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.radio + .reradio::before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+
+.radio:checked + .reradio::after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 5.5px;
+  left: 3.55px;
+  width: 11px;
+  height: 11px;
+  background: #1F4575;
+  border-radius: 50%;
+}
+
+.sub-text{
+  margin-top: 4px;
+}
+
+.sub{
+  font-size: 14px;
+  color: #aaa;
+  margin: 0;
+}
+
+.submit-btn{
+  width: 100%;
+  margin-top: 50px;
+}
+
+.submit{
+  border: solid 1.5px #1F4575;
+  border-radius: 5px;
+  padding: 5px 8px;
+  background: transparent;
+  transition: 0.4s;
+  width: 100%;
+  cursor: pointer;
+  color: #1F4575;
+  font-weight: bold;
+}
+
+.submit:hover{
+  background:#1F4575;
+  transition: 0.4s;
+  color: #fff;
+  transition: 0.4s;
+}
+
+label{
+  margin: 0;
+}
+
+p{
+  margin: 0;
+}
+
+/*googleボタン*/
+.login{
+  text-align: center;
+  margin: 20px auto;
+  border-radius: 8px;
+}
+
+.login h1{
+  text-align: center;
+  font-size: 28px;
+}
+
+.google-button {
+  height: 40px;
+  border-width: 0;
+  background: white;
+  color: #737373;
+  white-space: nowrap;
+  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
+  transition-property: background-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  padding: 0;
+  border-radius: 5px;
+}
+
+.google-button:focus,
+.google-button:hover {
+  box-shadow: 1px 4px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.google-button:active {
+  background-color: #e5e5e5;
+  box-shadow: none;
+  transition-duration: 10ms;
+}
+
+.google-button__icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 8px 0 8px 8px;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+}
+
+.google-button__icon--plus {
+  width: 27px;
+}
+.google-button__text {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 24px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Roboto", arial, sans-serif;
+}
+
 }
 </style>

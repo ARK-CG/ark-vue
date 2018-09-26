@@ -2,7 +2,7 @@
   <div class="home">
     <Swipers path='swipers'/>
     <div class="intro">
-      
+
       <div class="table small">
         <table>
           <tr>
@@ -237,14 +237,17 @@ export default {
       background: rgba(0,0,0,0);
       .nav{
         ul{
+          display: flex;
+          justify-content: space-between;
           list-style: none;
-          margin: 0;
+          margin: 0 auto;
+          max-width: 320px;
           padding: 0;
           .icon{
             li{
-              font-size: 16px;
+              font-size: 14px;
               display: inline-block;
-              padding: 20px 18px;
+              padding: 12px 10px;
               transition: 0.4s;
             }
           }
