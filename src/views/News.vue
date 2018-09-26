@@ -34,4 +34,14 @@ export default {
 .news {
   background: #fafafa;
 }
+
+@media screen and (max-width: 767px) {
+  .template{
+    max-width: 1024px;
+    padding-bottom: 100px;
+    margin: 0 auto;
+    padding:50px 5px 75px;
+    font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
+  }
+}
 </style>

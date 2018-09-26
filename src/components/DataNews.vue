@@ -9,21 +9,13 @@
                     <img :src="item.image" />
                   </div>
                   <div class="text">
-                    <p class="date">Date:{{item.date}}</p>
+                    <p class="date big">Date:{{item.date}}</p>
                     <h3>{{item.title}}</h3>
                     <p class="context">{{item.context}}</p>
+                    <p class="date small">Date:{{item.date}}</p>
                   </div>
                 </div>
               </div>
-                <!--
-                <div class="text">
-                    <h3>{{item.title}}</h3>
-                    <p class="sub">{{item.date}}</p>
-                    <p class="text-content">{{item.context}}</p>
-                    <p class="text-edit">Edit:{{item.timestamp}}</p>
-                    <p class="text-content">{{ item.id }}</p>
-                </div>
-              -->
             </div>
         </div>
     </div>
@@ -76,149 +68,138 @@ export default {
 };
 </script>
 
-<style scoped>
-.fade-in {
-  transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  -webkit-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
-}
-
-#content {
-  margin-bottom: 80px;
-}
+<style scoped lang="scss">
 
 /*media-query*/
 
 @media screen and (min-width: 767px) {
   .big {
+    display: block;
+  }
+
+  .small{
     display: none;
   }
 
-  .data h2{
-    font-size: 28px;
-    text-align: left;
-    display: block;
-    margin: 0;
+  .data{
+    h2{
+      font-size: 28px;
+      text-align: left;
+      display: block;
+      margin: 0;
+    }
+    .contents{
+      margin-top: 32px;
+      .row {
+        margin: 0 auto;
+        margin-bottom: 25px;
+        background: #fff;
+        padding: 15px;
+        .item{
+          display: flex;
+          align-items: center;
+          .img {
+            width: 200px;
+            border: solid 0.5px rgba(0, 0, 0, 0.3);
+            img {
+              width: 100%;
+              display: block;
+            }
+          }
+          .text{
+            flex: 1;
+            margin-left: 35px;
+            text-align: left;
+            max-width: 800px;
+            h3 {
+              font-size: 18px;
+              font-weight: bold;
+            }
+            p{
+              margin: 0;
+              text-align: left;
+              font-size: 14px;
+            }
+            .date{
+              color: #888;
+              text-align: left;
+              font-size: 12px;
+              margin-bottom: 14px;
+            }
+            .context{
+              line-height: 180%;
+            }
+          }
+        }
+      }
+    }
   }
-
-  .contents{
-    margin-top: 32px;
-  }
-
-  .row {
-    margin: 0 auto;
-    margin-bottom: 25px;
-    background: #fff;
-    padding: 15px;
-  }
-
-  .item{
-    display: flex;
-    align-items: center;
-  }
-
-  .img {
-    width: 200px;
-    border: solid 0.5px rgba(0, 0, 0, 0.3);
-  }
-
-  .img img {
-    width: 100%;
-    display: block;
-  }
-
-  .text{
-    flex: 1;
-    margin-left: 35px;
-    text-align: left;
-    max-width: 800px;
-  }
-
-  .text h3 {
-    font-size: 18px;
-    font-weight: bold;
-  }
-
-  .text p{
-    margin: 0;
-    text-align: left;
-    font-size: 14px;
-  }
-
-  .text .date{
-    color: #888;
-    display: block;
-    text-align: left;
-    font-size: 12px;
-    margin-bottom: 14px;
-  }
-
-  .text .context{
-    line-height: 180%;
-  }
-
-
-
 }
 
 @media screen and (max-width: 767px) {
-  .first {
-    margin-top: 20px;
-  }
-
-  .small {
+  .big{
     display: none;
   }
-
-  .news h2 {
-    width: 90%;
-    margin: 0px auto 30px;
-    padding-top: 50px;
-    font-weight: lighter;
-    font-size: 24px;
+  .small {
+    display: block;
   }
 
-  .contents {
-    background: #fff;
-    width: 80%;
-    margin: 0 auto 30px;
+  .data{
+    h2{
+      font-size: 28px;
+      text-align: left;
+      display: block;
+      margin: 0;
+    }
+    .contents{
+      margin-top: 32px;
+      .row {
+        margin: 0 auto 0px;
+        margin-bottom: 65px;
+        background: transparent;
+        padding: 0;
+        .item{
+          display: block;
+          margin: 0 auto;
+          max-width: 310px;
+          .img {
+            width: 100%;
+            border: solid 0.5px rgba(0, 0, 0, 0.3);
+            img {
+              width: 100%;
+              display: block;
+            }
+          }
+          .text{
+            text-align: left;
+            max-width: 310px;
+            margin-top: 20px;
+            h3 {
+              font-size: 22px;
+              font-weight: bold;
+            }
+            p{
+              margin: 0;
+              text-align: left;
+              font-size: 14px;
+            }
+            .date{
+              color: #999;
+              text-align: right;
+              margin-top: 8px;
+            }
+            .context{
+              line-height: 180%;
+              vertical-align: top;
+              font-size: 14px;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
   }
 
-  .content {
-    width: 100%;
-    margin: 0px auto 0px;
-    overflow: hidden;
-  }
 
-  .content .text {
-    margin: 30px auto;
-    width: 90%;
-  }
-
-  .img {
-    width: 100%;
-  }
-
-  .text h3 {
-    display: inline-block;
-    font-size: 15px;
-  }
-
-  .text-content {
-    margin-top: 10px;
-    font-size: 14px;
-  }
-
-  .text-edit {
-    font-size: 10px;
-  }
-
-  .date {
-    display: inline-block;
-    font-size: 10px;
-    color: #808080;
-    margin: 0 0 0 20px;
-  }
 }
 </style>

@@ -99,7 +99,7 @@
     max-width: 800px;
     margin: 0 auto;
     .title-text{
-      width: 310px;
+      max-width: 310px;
       margin: 20px auto 30px;
       h1{
         font-size: 28px;
@@ -126,7 +126,7 @@
       }
     }
     .img{
-      width: 310px;
+      max-width: 310px;
       margin: 0 auto;
       img{
         width: 100%;
