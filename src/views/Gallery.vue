@@ -1,5 +1,6 @@
 <template>
     <div class="gallery">
+      <Nav />
       <div class="template">
         <Data title="Gallery" path='works' />
       </div>
@@ -8,11 +9,13 @@
 
 <script>
 import Data from "@/components/Data.vue";
+import Nav from "@/components/Nav.vue";
 
 export default {
   name: "Gallery",
   components: {
-    Data
+    Data,
+    Nav
   },
   methods: {}
 };

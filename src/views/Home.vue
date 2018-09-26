@@ -51,9 +51,44 @@ export default {
   }
 };
 </script>
+<style media="screen" scoped>
 
-<style>
+
+</style>
+
+
+<style lang="scss">
+
 /*top*/
+.top-nav{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  .navigation{
+    background: rgba(0,0,0,0);
+    .nav{
+      ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        .icon{
+          li{
+            font-size: 16px;
+            display: inline-block;
+            padding: 20px 18px;
+            transition: 0.4s;
+          }
+        }
+        .icon:hover li{
+          background: rgba(0,0,0,0.2);
+          transition: 0.4s;
+        }
+      }
+    }
+  }
+}
 .eyecatch{
   max-width: 800px;
   margin: 60px auto;

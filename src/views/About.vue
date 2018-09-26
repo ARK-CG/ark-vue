@@ -1,5 +1,6 @@
 <template>
 <div class="about">
+  <Nav />
   <div class="template">
     <div class="content">
       <div class="content-title">
@@ -129,6 +130,7 @@
 </template>
 
 <script>
+import Nav from "@/components/Nav.vue";
 let GoogleMapsLoader = require("google-maps");
 
 GoogleMapsLoader.KEY = "AIzaSyBVLIBCpmJvpHg8j7_RY-rQX500dS3xltw";
@@ -136,6 +138,9 @@ GoogleMapsLoader.LANGUAGE = "ja";
 
 export default {
   name: "Gmap",
+  components: {
+    Nav
+  },
   props: {
     lat: {
       type: Number,
@@ -239,6 +244,10 @@ export default {
   }
 };
 </script>
+
+<style media="screen">
+
+</style>
 
 <style scoped lang="scss">
 .fade-in {

@@ -1,5 +1,6 @@
 <template>
 <div class="member">
+  <Nav />
   <div class="template">
     <NewContact />
   </div>
@@ -9,12 +10,14 @@
 <script>
 import NewContact from "@/components/NewContact.vue";
 import Test from "@/components/Test.vue";
+import Nav from "@/components/Nav.vue";
 
 export default {
   name: "member",
   components: {
     NewContact,
-    Test
+    Test,
+    Nav
   }
 };
 </script>

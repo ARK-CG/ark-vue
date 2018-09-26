@@ -1,5 +1,6 @@
 <template>
   <div class="news">
+    <Nav />
     <div class="template">
       <DataNews title="News" path='news'/>
     </div>
@@ -8,11 +9,13 @@
 
 <script>
 import DataNews from "@/components/DataNews.vue";
+import Nav from "@/components/Nav.vue";
 
 export default {
   name: "News",
   components: {
-    DataNews
+    DataNews,
+    Nav
   },
   methods: {}
 };

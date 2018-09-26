@@ -104,7 +104,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .navigation{
   width: 100%;
   padding: 0 62px;
@@ -125,7 +125,7 @@ export default {
       .icon{
         color: #fafafa;
         li{
-          font-size: 14px;
+          font-size: 16px;
           display: inline-block;
           padding: 20px 18px;
           transition: 0.4s;
