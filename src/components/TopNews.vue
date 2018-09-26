@@ -1,12 +1,12 @@
 <template>
     <div class="data">
       <div class="intro">
-        <h1 class="small"><span>N</span>ews</h1>
         <div class="img small">
           <img :src="list[0].image" />
         </div>
 
         <div class="title-text">
+          <h1 class="small"><span>N</span>ews</h1>
           <h1 class="big"><span>N</span>ews</h1>
           <div class="detail-text">
             <div class="texts">

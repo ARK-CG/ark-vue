@@ -17,12 +17,15 @@
         <p>活動内容</p>
       </div>
       <div class="item odd">
+        <div class="img small">
+          <img src="../assets/carmodel.png" alt="">
+        </div>
         <div class="texts">
           <h2>3DCG</h2>
           <p>当サークルのメイン活動内容となっている3DCGはメンバー個人個人がそれぞれのソフトを使いたくさんの作品を出しています。<br />
             基本的には個人作業ですが、サークル全体で撮影なども行っています。</p>
         </div>
-        <div class="img">
+        <div class="img big">
           <img src="../assets/carmodel.png" alt="">
         </div>
       </div>
@@ -40,12 +43,15 @@
       </div>
 
       <div class="item odd">
+        <div class="img small">
+          <img src="../assets/carmodel.png" alt="">
+        </div>
         <div class="texts">
           <h2>webアプリケーション</h2>
           <p>webアプリケーションは2018年から始まったプロジェクトです。<br />
             エンジニアコースやデザインコースのメンバーが協力してサービスを作っています。</p>
         </div>
-        <div class="img">
+        <div class="img big">
           <img src="../assets/carmodel.png" alt="">
         </div>
       </div>
@@ -60,7 +66,7 @@
           <table>
               <tr>
                   <td>サークル名</td>
-                  <td>[ARK] CG・映像制作サークル</td>
+                  <td>[ARK] CG・映像制作<br class="small"/>サークル</td>
               </tr>
               <tr>
                   <td>アドレス</td>
@@ -92,7 +98,7 @@
         </div>
         <div class="content">
             <div class="row">
-                <div class="col-12 col-md-4 left">
+                <div class="col-6 col-md-4 left">
                     <div class="prf fade-in">
                         <img src="../assets/bear.jpg" style="width:100%" alt="">
                         <div class="info">
@@ -102,7 +108,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4 center">
+                <div class="col-6 col-md-4 center">
                     <div class="prf fade-in">
                         <img src="../assets/Ishide.jpg" style="width:100%" alt="">
                         <div class="info">
@@ -112,7 +118,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4 right">
+                <div class="col-6 col-md-4 right">
                     <div class="prf fade-in">
                         <img src="../assets/Yaegashi.jpg" style="width:100%" alt="">
                         <div class="info">
@@ -246,19 +252,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.fade-in {
-  transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  -webkit-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
+@media screen and (min-width: 767px) {
+.big{
+  display: block;
 }
 
-.eycatch {
-  width: 100%;
+.small{
+  display: none;
 }
 
 .content{
   text-align: left;
+  width: 100%;
+  margin-top: 80px;
   .about{
     font-size: 14px;
     line-height: 180%;
@@ -282,11 +288,11 @@ export default {
     }
   }
   .item{
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     display: flex;
     align-items: center;
     .img{
-      width: 400px;
+      width: 360px;
       padding: 10px;
       border: solid 0.8px #ccc;
       img{
@@ -318,10 +324,16 @@ export default {
   }
 }
 
-
-.text {
-  display: inline-block;
+/*map*/
+.map_wrap {
+  margin: 20px auto;
+  #map {
+    margin: 0 auto;
+    width: 100%;
+    height: 400px;
+  }
 }
+
 
 .template{
   max-width: 1024px;
@@ -335,177 +347,197 @@ export default {
   background: #FaFaFa;
   color: #555;
 }
+td {
+  padding: 10px 40px 10px 0;
+  vertical-align: top;
+  font-size: 16px;
+  line-height: 140%;
+}
 
-@media screen and (min-width: 767px) {
-  .content {
-    width: 100%;
-    margin-top: 50px;
-  }
-
-  .row {
-    margin: auto;
-    width: 80%;
-  }
-
-  .col-md-6 {
-    padding: 0;
-  }
-
-  .left {
-    padding-right: 20px;
-  }
-
-  .right {
-    padding-left: 20px;
-  }
-
-
-  td {
-    padding: 10px 40px 10px 0;
-    vertical-align: top;
-    font-size: 14px;
-    line-height: 140%;
-  }
-
-  .map_wrap {
-    margin: 20px auto;
-  }
-
-  #map {
-    margin: 0 auto;
-    width: 100%;
-    height: 400px;
-  }
-
+/*member*/
   .member {
     background: transparent;
     margin-bottom: 100px;
+    .row {
+      margin: auto;
+      width: 80%;
+      .left {
+        padding: 0;
+        padding-right: 20px;
+      }
+      .right {
+        padding: 0;
+        padding-left: 20px;
+      }
+      .center {
+        padding: 0 10px;
+      }
+      .prf{
+        position: relative;
+        .info{
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          margin-bottom: 10px;
+          p{
+            margin: 0 10px;
+            color: #fff;
+          }
+          .name{
+            font-size: 12px;
+            font-weight: bold;
+          }
+          .position{
+            font-size: 10px;
+          }
+        }
+      }
+    }
   }
 
-  .prf{
-    position: relative;
-  }
-
-  .info{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin-bottom: 10px;
-  }
-
-  .info p{
-    margin: 0 10px;
-    color: #fff;
-  }
-
-  .info .name{
-    font-size: 12px;
-    font-weight: bold;
-  }
-
-  .info .position{
-    font-size: 10px;
-  }
-
-
-  .right {
-    padding: 0 0 0 20px;
-  }
-
-  .center {
-    padding: 0 10px;
-  }
-
-  .left {
-    padding: 0 20px 0 0;
-  }
 }
 
 @media screen and (max-width: 767px) {
-  .eyecatch p {
-    color: #fff;
+  .big{
+    display: none;
   }
 
-  p {
-    font-size: 14px;
+  .small{
+    display: block;
   }
 
-  td {
-    font-size: 12px;
-    padding: 10px 5px;
-  }
-
-  h2 {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-
-  #map {
+  .content{
+    text-align: left;
     width: 100%;
-    height: 250px;
+    margin-top: 50px;
+    .about{
+      font-size: 14px;
+      line-height: 180%;
+    }
+    .content-title{
+      margin-bottom: 30px;
+      h1 {
+        font-size: 24px;
+        display: inline-block;
+        font-weight: bold;
+        margin: 0;
+      }
+      p{
+        font-size: 12px;
+        color: #999;
+        margin-bottom: 0;
+      }
+    }
+    .item{
+      margin-bottom: 20px;
+      .img{
+        max-width: 380px;
+        padding: 10px;
+        border: solid 0.8px #ccc;
+        margin: 20px auto;
+        img{
+          width: 100%;
+        }
+      }
+      .texts{
+        max-width: 350px;
+        margin: 0 auto;
+        h2{
+          font-size: 20px;
+          font-weight: bold;
+        }
+        p{
+          font-size: 14px;
+          display: inline-block;
+          line-height: 180%;
+        }
+      }
+    }
+    .odd{
+      .texts{
+        margin-right: auto;
+      }
+    }
+    .even{
+      .texts{
+        margin-left: auto;
+      }
+    }
   }
 
-  .content {
-    width: 80%;
-    margin: 50px auto;
-  }
-
-  .category {
-    margin: 0 0 80px auto;
-  }
-
-  .category h3 {
-    font-size: 18px;
-  }
-
-  .category p {
-    margin-bottom: 30px;
-  }
-
-  .text {
-    margin-bottom: 30px;
-  }
-
-  .ex {
-    width: 100%;
-    background: #ecf0f1;
-    padding: 30px 0;
-  }
-
-  .ex2 {
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  .ex2 h2 {
-    margin: 0px auto 30px;
-  }
-
+  /*map*/
   .map_wrap {
     margin: 20px auto;
+    #map {
+      margin: 0 auto;
+      width: 100%;
+      height: 250px;
+    }
   }
 
-  .member h2 {
-    width: 80%;
+
+  .template{
+    max-width: 1024px;
+    padding-bottom: 100px;
+    margin: 0 auto;
+    padding:15px;
+    font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
   }
 
-  .member h2 {
-    width: 80%;
-    margin: 50px auto;
+  .about {
+    background: #FaFaFa;
+    color: #555;
   }
-
-  .prf {
-    margin-bottom: 60px;
-  }
-
-  .position {
-    text-align: center;
+  td {
+    padding: 10px 20px 10px 0;
+    vertical-align: top;
     font-size: 14px;
+    line-height: 140%;
+
   }
 
-  .member p {
-    margin: 0;
-  }
+  /*member*/
+    .member {
+      background: transparent;
+      margin-bottom: 100px;
+      .row {
+        margin: auto;
+        width: 100%;
+        .left {
+          padding: 0;
+          padding-right: 10px;
+        }
+        .center {
+          padding: 0;
+          padding-left: 10px;
+        }
+        .right {
+          padding: 0;
+          padding-right: 10px;
+          margin-top: 20px;
+        }
+        .prf{
+          position: relative;
+          .info{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin-bottom: 10px;
+            p{
+              margin: 0 10px;
+              color: #fff;
+            }
+            .name{
+              font-size: 12px;
+              font-weight: bold;
+            }
+            .position{
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
 }
 
 </style>
