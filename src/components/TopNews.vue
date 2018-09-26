@@ -49,6 +49,7 @@
     h1{
       font-size: 28px;
       writing-mode: vertical-rl;
+      margin: 0 15px 0 0;
     }
     .detail-text{
       width: 260px;

@@ -177,13 +177,13 @@ h1{
   font-size: 28px;
 }
 .contents{
-  justify-content: center;
+  justify-content: space-between;
   display: flex;
   .collum{
     table{
       width: 220px;
       .img{
-        margin: 15px 10px;
+        margin: 15px 8px;
       }
       td{
         padding: 8px;

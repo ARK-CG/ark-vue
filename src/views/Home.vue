@@ -101,7 +101,7 @@ export default {
 .intro{
   max-width: 800px;
   margin: 0px auto;
-  padding: 40px 0 0;
+  padding: 70px 15px 0;
   display: flex;
   align-items: center;
 }
@@ -115,6 +115,7 @@ export default {
   font-size: 28px;
   writing-mode: vertical-rl;
   display: inline-block;
+  margin: 0 15px 0 0 ;
 }
 
 h1 span{
