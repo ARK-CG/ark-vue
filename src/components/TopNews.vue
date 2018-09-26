@@ -1,8 +1,13 @@
 <template>
     <div class="data">
       <div class="intro">
+        <h1 class="small"><span>N</span>ews</h1>
+        <div class="img small">
+          <img :src="list[0].image" />
+        </div>
+
         <div class="title-text">
-          <h1><span>N</span>ews</h1>
+          <h1 class="big"><span>N</span>ews</h1>
           <div class="detail-text">
             <div class="texts">
               <h2>{{list[0].title}}</h2>
@@ -12,7 +17,7 @@
           </div>
         </div>
 
-        <div class="img">
+        <div class="img big">
           <img :src="list[0].image" />
         </div>
 
@@ -21,21 +26,17 @@
 </template>
 
 <style scoped lang="scss">
-
-.fade-in {
-  transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  -webkit-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
-}
-
-#content {
-  margin-bottom: 80px;
-}
-
 /*media-query*/
+@media screen and (min-width: 767px) {
+  .small{
+    display: none;
+  }
+
+  .big{
+    display: block;
+  }
 .data{
-  padding: 0px 0 80px;
+  padding: 0px 0 100px;
 }
 
 .intro{
@@ -76,6 +77,60 @@
     width: 375px;
     img{
       width: 100%;
+    }
+  }
+}
+}
+
+@media screen and (max-width: 767px) {
+  .small{
+    display: block;
+  }
+
+  .big{
+    display: none;
+  }
+
+  .data{
+    padding: 0px 0 100px;
+  }
+
+  .intro{
+    max-width: 800px;
+    margin: 0 auto;
+    .title-text{
+      width: 310px;
+      margin: 20px auto 30px;
+      h1{
+        font-size: 28px;
+        margin: 0 0 14px;
+      }
+      .detail-text{
+
+        .texts{
+          text-align: left;
+          margin-right: 20px;
+          h2{
+            font-size: 24px;
+          }
+          p{
+            white-space: pre-wrap;
+          }
+          .date{
+            display: block;
+            color: #999;
+            text-align: right;
+            margin-top: 8px;
+          }
+        }
+      }
+    }
+    .img{
+      width: 310px;
+      margin: 0 auto;
+      img{
+        width: 100%;
+      }
     }
   }
 }

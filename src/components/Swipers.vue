@@ -48,6 +48,14 @@ export default {
 
 <style scoped lang="scss">
 @media screen and (min-width: 767px) {
+  .small{
+    display: none;
+  }
+
+  .big{
+    display: block;
+  }
+
   .swiper-container {
     position: relative;
     .top-nav{
@@ -102,11 +110,71 @@ export default {
   img {
     width: 100%;;
   }
-
-
 }
+
 @media screen and (max-width: 767px) {
-  .swiper-container {
+  .small{
+    display: block;
   }
+
+  .big{
+    display: none;
+  }
+
+  .swiper-container {
+    position: relative;
+    .top-nav{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      .navigation{
+        background: rgba(0,0,0,0);
+        .nav{
+          ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            .icon{
+              color: red;
+              li{
+                font-size: 14px;
+                display: inline-block;
+                padding: 20px 18px;
+                transition: 0.4s;
+              }
+            }
+            .icon:hover li{
+              background: red;
+              transition: 0.4s;
+            }
+          }
+        }
+      }
+    }
+    .slide-img{
+      width: 100%;
+      height: 280px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .first{
+      background-image: url(../assets/carmodel.png);
+    }
+    .second{
+      background-image: url(../assets/kaito-work2.png);
+    }
+    .third{
+      background-image: url(../assets/kaito-work1.png);
+    }
+
+  }
+
+  img {
+    width: 100%;;
+  }
+
 }
 </style>
