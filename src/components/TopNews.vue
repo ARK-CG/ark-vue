@@ -2,7 +2,7 @@
     <div class="data">
       <div class="intro">
         <div class="title-text">
-          <h1>News</h1>
+          <h1><span>N</span>ews</h1>
           <div class="detail-text">
             <div class="texts">
               <h2>{{list[0].title}}</h2>

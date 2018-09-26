@@ -93,7 +93,7 @@
             <div class="row">
                 <div class="col-12 col-md-4 left">
                     <div class="prf fade-in">
-                        <img src="../assets/Yaegashi.jpg" style="width:100%" alt="">
+                        <img src="../assets/bear.jpg" style="width:100%" alt="">
                         <div class="info">
                           <p class="name">Takashi Horigome</p>
                           <p class="position">President</p>
@@ -103,7 +103,7 @@
 
                 <div class="col-12 col-md-4 center">
                     <div class="prf fade-in">
-                        <img src="../assets/Yaegashi.jpg" style="width:100%" alt="">
+                        <img src="../assets/Ishide.jpg" style="width:100%" alt="">
                         <div class="info">
                           <p class="name">Koshi Iside</p>
                           <p class="position">Vice-president</p>

@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-
+    <Swipers path='swipers'/>
     <div class="intro">
       <div class="text">
-        <h1>Gallery</h1>
+        <h1><span>G</span>allery</h1>
         <div class="detail-text">
           <p>幅広い分野で、メンバーの得意分野ですきなように作品を作り上げています。テキストが入りますテキストが入りますテキストが入ります</p>
           <div class="button">
@@ -18,15 +18,15 @@
               <img src="../assets/carmodel.png" alt="">
             </td>
             <td>
-              <img src="../assets/carmodel.png" alt="">
+              <img src="../assets/kaito-work1.png" alt="">
             </td>
           </tr>
           <tr>
             <td>
-              <img src="../assets/carmodel.png" alt="">
+              <img src="../assets/kaito-work4.png" alt="">
             </td>
             <td>
-              <img src="../assets/carmodel.png" alt="">
+              <img src="../assets/kaito-work2.png" alt="">
             </td>
           </tr>
         </table>
@@ -80,6 +80,10 @@ export default {
   font-size: 28px;
   writing-mode: vertical-rl;
   display: inline-block;
+}
+
+h1 span{
+  color: #FF8C00;
 }
 
 .intro .detail-text{

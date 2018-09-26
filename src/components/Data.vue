@@ -1,6 +1,56 @@
 <template>
     <div class="data">
+      <h1>Gallrey</h1>
         <div class="contents fade-in">
+          <div class="collum first">
+            <table>
+              <tr v-for="item in list.length" :key="item.id">
+                <div v-if="list[item]">
+                  <div class="img">
+                    <td><img :src="list[item].image" /></td>
+                  </div>
+                </div>
+              </tr>
+            </table>
+          </div>
+
+          <div class="collum second">
+            <table>
+              <tr v-for="(item) in list.length" :key="item.id">
+                <div v-if="list[item]">
+                  <div class="img">
+                    <td><img :src="list[item].image" /></td>
+                  </div>
+                </div>
+
+              </tr>
+            </table>
+          </div>
+
+          <div class="collum third">
+            <table>
+              <tr v-for="(item) in list.length" :key="item.id">
+                <div v-if="list[item + 1]">
+                  <div class="img">
+                    <td><img :src="list[item + 1].image" /></td>
+                  </div>
+                </div>
+              </tr>
+            </table>
+          </div>
+
+          <div class="collum forth">
+            <table>
+              <tr v-for="(item) in list.length" :key="item.id">
+                <div v-if="list[item + 2]">
+                  <div class="img">
+                    <td><img :src="list[item + 2].image" /></td>
+                  </div>
+                </div>
+              </tr>
+            </table>
+          </div>
+          <!--
             <div class="content">
               <div class="row">
                 <div class="item">
@@ -61,7 +111,7 @@
                   </div>
                 </div>
               </div>
-                <!--
+
                 <div class="text">
                     <h3>{{item.title}}</h3>
                     <p class="sub">{{item.date}}</p>
@@ -69,8 +119,8 @@
                     <p class="text-edit">Edit:{{item.timestamp}}</p>
                     <p class="text-content">{{ item.id }}</p>
                 </div>
-              -->
             </div>
+          -->
         </div>
     </div>
 </template>
@@ -114,150 +164,39 @@ export default {
     });
     return {
       list: data ,// 最新状態はここにコピーされる
-      step: 3,
-      i : 0
+      i: 0
     };
   },
   methods: {}
 };
 </script>
 
-<style scoped>
-.fade-in {
-  transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  -webkit-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
+<style scoped lang="scss">
+h1{
+  text-align: left;
+  font-size: 28px;
 }
-
-#content {
-  margin-bottom: 80px;
+.contents{
+  justify-content: center;
+  display: flex;
+  .collum{
+    table{
+      width: 220px;
+      .img{
+        margin: 15px 10px;
+      }
+      td{
+        padding: 8px;
+        border: solid 0.8px #ccc;
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 
 /*media-query*/
 
-@media screen and (min-width: 767px) {
-  .big {
-    display: none;
-  }
 
-  .row{
-    max-width: 800px;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-    margin-bottom: 45px;
-  }
-
-  .img {
-    width: 230px;
-    border: solid 0.5px rgba(0, 0, 0, 0.3);
-  }
-
-  .img img{
-    width: 100%;
-    display: block;
-  }
-
-  .content .text {
-  }
-
-  .content {
-    margin: 0px auto 0px;
-    padding: 20px 0;
-  }
-
-  .news h2 {
-    width: 90%;
-    margin: 0px auto 30px;
-    padding-top: 50px;
-    font-weight: lighter;
-  }
-
-  .contents {
-    margin: 0 auto 0px;
-  }
-
-  .text h3 {
-    display: inline-block;
-    font-size: 18px;
-  }
-
-  .text-content {
-    margin-top: 10px;
-    font-size: 16px;
-  }
-
-  .text-edit {
-    font-size: 12px;
-  }
-
-  .sub {
-    display: inline-block;
-    font-size: 14px;
-    color: #808080;
-    margin: 0 0 0 20px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .first {
-    margin-top: 20px;
-  }
-
-  .small {
-    display: none;
-  }
-
-  .news h2 {
-    width: 90%;
-    margin: 0px auto 30px;
-    padding-top: 50px;
-    font-weight: lighter;
-    text-align: center;
-    font-size: 24px;
-  }
-
-  .contents {
-    background: #fff;
-    width: 80%;
-    margin: 0 auto 30px;
-  }
-
-  .content {
-    width: 100%;
-    margin: 0px auto 0px;
-    overflow: hidden;
-  }
-
-  .content .text {
-    margin: 30px auto;
-    width: 90%;
-  }
-
-  .img {
-    width: 100%;
-  }
-
-  .text h3 {
-    display: inline-block;
-    font-size: 15px;
-  }
-
-  .text-content {
-    margin-top: 10px;
-    font-size: 14px;
-  }
-
-  .text-edit {
-    font-size: 10px;
-  }
-
-  .date {
-    display: inline-block;
-    font-size: 10px;
-    color: #808080;
-    margin: 0 0 0 20px;
-  }
-}
 </style>
