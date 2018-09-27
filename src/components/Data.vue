@@ -182,6 +182,7 @@ export default {
 h1{
   text-align: left;
   font-size: 28px;
+  padding: 0 8px;
 }
 .contents{
   justify-content: space-between;

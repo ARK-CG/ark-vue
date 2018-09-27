@@ -54,11 +54,11 @@
           <label for="example-url-input" class="">カテゴリー</label>
           <p>必須</p>
         </div>
-        <div class="">
+        <div class="radio-item">
           <input type="radio" id="customRadioInline1" name="customRadioInline" class="radio" v-model="picked" value="works" required>
           <label class="reradio" for="customRadioInline1">Gallery</label>
         </div>
-        <div class="">
+        <div class="radio-item">
           <input type="radio" id="customRadioInline2" name="customRadioInline" class="radio" v-model="picked" value="news" required>
           <label class="reradio" for="customRadioInline2">News</label>
         </div>
@@ -739,6 +739,10 @@ h1{
 /*ラジオボタン*/
 .radio{
   display: none;
+}
+
+.radio-item{
+  margin: 8px 0;
 }
 
 .radio + .reradio{

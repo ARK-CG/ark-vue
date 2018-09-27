@@ -149,7 +149,8 @@ export default {
       font-size: 28px;
       text-align: left;
       display: block;
-      margin: 0;
+      margin: 0 auto;
+      max-width: 310px;
     }
     .contents{
       margin-top: 32px;

@@ -2,7 +2,7 @@
   <div class="home">
     <Swipers path='swipers'/>
     <div class="intro">
-
+      <h1 class="small"><span>G</span>allery</h1>
       <div class="table small">
         <table>
           <tr>
@@ -24,7 +24,7 @@
         </table>
       </div>
       <div class="text">
-        <h1><span>G</span>allery</h1>
+        <h1 class="big"><span>G</span>allery</h1>
         <div class="detail-text">
           <p>幅広い分野で、メンバーの得意分野ですきなように作品を作り上げています。テキストが入りますテキストが入りますテキストが入ります</p>
           <div class="button">
@@ -265,6 +265,13 @@ export default {
     max-width: 800px;
     margin: 0px auto 0px;
     padding: 40px 5px 0;
+    h1{
+      max-width: 310px;
+      margin: 0 auto;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
     .text{
       width: 310px;
       margin: 20px auto 30px;

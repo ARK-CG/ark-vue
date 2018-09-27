@@ -409,7 +409,7 @@ td {
   .content{
     text-align: left;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 15px;
     .about{
       font-size: 14px;
       line-height: 180%;
