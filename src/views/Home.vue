@@ -273,7 +273,7 @@ export default {
       margin-bottom: 12px;
     }
     .text{
-      width: 310px;
+      max-width: 310px;
       margin: 20px auto 30px;
       text-align: left;
       padding: 5px;
@@ -327,7 +327,7 @@ export default {
           border-top: none;
           padding: 5px;
           img{
-            width: 140px;
+            max-width: 140px;
             line-height: 0;
             font-size: 0;
           }
