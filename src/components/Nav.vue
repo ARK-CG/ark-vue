@@ -135,7 +135,7 @@ export default {
           }
         }
         .icon:hover li{
-          background: linear-gradient(to bottom, #f2f2f2, #dfdfdf);
+          background: transparent;
           transition: 0.4s;
         }
       }

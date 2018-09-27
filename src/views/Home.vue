@@ -127,14 +127,14 @@ export default {
   width: 100%;
 
   .navigation{
-    background: rgba(0,0,0,0);
+    background: linear-gradient(to bottom, #FfFFFF, #f0f0f0);
     .nav{
       ul{
         list-style: none;
         margin: 0;
         padding: 0;
         .icon{
-          color: #f0f0f0;
+          color: #555;
           li{
             font-size: 16px;
             display: inline-block;
@@ -143,7 +143,7 @@ export default {
           }
         }
         .icon:hover li{
-          background: rgba(0,0,0,0.2);
+          background: linear-gradient(to bottom, rgba(242, 242, 242,0.4), rgba(223, 223, 223,0.4));
           transition: 0.4s;
         }
       }
@@ -252,7 +252,7 @@ export default {
     z-index: 10;
     width: 100%;
     .navigation{
-      background: rgba(0,0,0,0);
+      background: linear-gradient(to bottom, #FfFFFF, #f0f0f0);
       .nav{
         ul{
           display: flex;
@@ -262,7 +262,7 @@ export default {
           max-width: 320px;
           padding: 0;
           .icon{
-            color: #fff;
+            color: #555;
             li{
               font-size: 14px;
               display: inline-block;
@@ -271,7 +271,7 @@ export default {
             }
           }
           .icon:hover li{
-            background: rgba(0,0,0,0.2);
+            background: transparent;
             transition: 0.4s;
           }
         }

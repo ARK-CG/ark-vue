@@ -65,7 +65,7 @@ export default {
       z-index: 10;
       width: 100%;
       .navigation{
-        background: rgba(0,0,0,0);
+        background: linear-gradient(to bottom, rgba(242, 242, 242,0.3), rgba(223, 223, 223,0.8));
         .nav{
           ul{
             list-style: none;
@@ -130,14 +130,14 @@ export default {
       z-index: 10;
       width: 100%;
       .navigation{
-        background: rgba(0,0,0,0);
+        background: linear-gradient(to bottom, rgba(242, 242, 242,0.3), rgba(223, 223, 223,0.8));
         .nav{
           ul{
             list-style: none;
             margin: 0;
             padding: 0;
             .icon{
-              color: red;
+
               li{
                 font-size: 14px;
                 display: inline-block;
