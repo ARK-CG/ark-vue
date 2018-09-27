@@ -1,14 +1,23 @@
 <template>
     <div class="data">
       <h1>Gallrey</h1>
-      <div v-masonry transition-duration="0.6s"
-      class="masonry-container" column-width="245" item-selector=".item">
+      <div v-masonry transition-duration="0.6s" fit-width="True"
+      class="masonry-container big" column-width="245" item-selector=".item">
       <div v-masonry-tile class="item" v-for="item in list">
         <div class="masonry-img">
           <img :src="item.image" />
         </div>
       </div>
     </div>
+
+    <div v-masonry transition-duration="0.6s" fit-width="True"
+    class="masonry-container small" column-width="172" item-selector=".item">
+    <div v-masonry-tile class="item" v-for="item in list">
+      <div class="masonry-img">
+        <img :src="item.image" />
+      </div>
+    </div>
+  </div>
     </div>
 </template>
 
@@ -61,8 +70,9 @@ export default {
 <style scoped lang="scss">
 .masonry-container{
   max-width: 1024px;
-  margin: 0 auto;
+  margin: 30px auto;
   .item{
+    margin: 0 8px;
     margin-bottom: 20px;
   }
 }
@@ -73,15 +83,8 @@ export default {
     width: 100%;
   }
 }
-
-
-
   .big{
-    display: flex;
-  }
-
-  .md{
-    display: none;
+    display: block;
   }
 
   .small{
@@ -93,91 +96,31 @@ h1{
   font-size: 28px;
   padding: 0 8px;
 }
-.contents{
-  justify-content: space-between;
-  .collum{
-    table{
-      max-width: 220px;
-      .img{
-        margin: 15px 8px;
-      }
-      td{
-        padding: 8px;
-        border: solid 0.8px #ccc;
-        img{
-          width: 100%;
-        }
-      }
-    }
-  }
-}
 
 
-@media screen and (max-width: 920px){
-    .big{
-      display: none;
-    }
-    .small {
-      display: none;
-    }
-    .md{
-      display: flex;
-    }
-
-    .contents{
-      max-width: 700px;
-      margin: 0 auto;
-      justify-content: space-between;
-      .collum{
-        table{
-          max-width: 220px;
-          .img{
-            margin: 15px 8px;
-          }
-          td{
-            padding: 8px;
-            border: solid 0.8px #ccc;
-            img{
-              width: 100%;
-            }
-          }
-        }
-      }
-    }
-
-
-}
 /*media-query*/
-@media screen and (max-width: 697px) {
+@media screen and (max-width: 767px) {
   .big{
     display: none;
   }
   .small {
-    display: flex;
+    display: block;
   }
 
-  .md{
-    display: none;
+  .masonry-container{
+    width: 800px;
+    margin: 30px auto;
+    width: auto;
+    .item{
+      margin-bottom: 20px;
+    }
   }
 
-  .contents{
-    max-width: 450px;
+  .masonry-img{
+    width: 156px;
     margin: 0 auto;
-    justify-content: space-between;
-    .collum{
-      table{
-        max-width: 220px;
-        .img{
-          margin: 10px 8px;
-        }
-        td{
-          padding: 8px;
-          border: solid 0.8px #ccc;
-          img{
-            width: 100%;
-          }
-        }
-      }
+    img{
+      width: 100%;
     }
   }
 }
