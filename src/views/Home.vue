@@ -262,6 +262,7 @@ export default {
           max-width: 320px;
           padding: 0;
           .icon{
+            color: #fff;
             li{
               font-size: 14px;
               display: inline-block;

@@ -126,7 +126,7 @@ export default {
         max-width: 320px;
         padding: 0;
         .icon{
-          color: #f1f1f1;
+          color: #555;
           li{
             font-size: 14px;
             display: inline-block;
