@@ -32,7 +32,7 @@
 
       <div class="item even">
         <div class="img">
-          <img src="../assets/carmodel.png" alt="">
+          <img src="../assets/thumagari.jpg" alt="">
         </div>
         <div class="texts">
           <h2>イラストレーション</h2>

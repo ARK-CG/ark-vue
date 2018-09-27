@@ -2,7 +2,7 @@
   <div class="home">
     <Swipers path='swipers'/>
     <div class="intro">
-      <h1 class="small"><span>G</span>allery</h1>
+      <h1 class="small" ><span>G</span>allery</h1>
       <div class="table small">
         <table>
           <tr>
@@ -63,12 +63,28 @@
 // @ is an alias to /src
 import Swipers from "@/components/Swipers.vue";
 import TopNews from "@/components/TopNews.vue";
+import Modal from "@/components/Modal.vue";
 
 export default {
   name: "home",
   components: {
     Swipers,
-    TopNews
+    TopNews,
+    Modal
+  },
+  data() {
+    return {
+      modal: false,
+      message: ''
+    }
+  },
+  methods: {
+    openModal() {
+      this.modal = true
+    },
+    closeModal() {
+      this.modal = false
+    }
   }
 };
 </script>

@@ -16,6 +16,9 @@ import "imagesloaded";
 import responsive from "vue-responsive";
 Vue.use(responsive);
 
+import {VueMasonryPlugin} from 'vue-masonry';
+Vue.use(VueMasonryPlugin)
+
 //https://github.com/surmon-china/vue-awesome-swiper
 import "swiper/dist/css/swiper.css";
 import VueAwesomeSwiper from "vue-awesome-swiper";

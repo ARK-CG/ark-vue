@@ -1,122 +1,14 @@
 <template>
     <div class="data">
       <h1>Gallrey</h1>
-        <div class="contents fade-in big">
-          <div class="collum first">
-            <table>
-              <tr v-for="item in list.length" :key="item.id">
-                <div v-if="list[item]">
-                  <div class="img">
-                    <td><img :src="list[item].image" /></td>
-                  </div>
-                </div>
-              </tr>
-            </table>
-          </div>
-
-          <div class="collum second">
-            <table>
-              <tr v-for="(item) in list.length" :key="item.id">
-                <div v-if="list[item]">
-                  <div class="img">
-                    <td><img :src="list[item].image" /></td>
-                  </div>
-                </div>
-
-              </tr>
-            </table>
-          </div>
-
-          <div class="collum third">
-            <table>
-              <tr v-for="(item) in list.length" :key="item.id">
-                <div v-if="list[item + 1]">
-                  <div class="img">
-                    <td><img :src="list[item + 1].image" /></td>
-                  </div>
-                </div>
-              </tr>
-            </table>
-          </div>
-
-          <div class="collum forth">
-            <table>
-              <tr v-for="(item) in list.length" :key="item.id">
-                <div v-if="list[item + 2]">
-                  <div class="img">
-                    <td><img :src="list[item + 2].image" /></td>
-                  </div>
-                </div>
-              </tr>
-            </table>
-          </div>
+      <div v-masonry transition-duration="0.6s"
+      class="masonry-container" column-width="245" item-selector=".item">
+      <div v-masonry-tile class="item" v-for="item in list">
+        <div class="masonry-img">
+          <img :src="item.image" />
         </div>
-
-        <div class="contents fade-in md">
-          <div class="collum first">
-            <table>
-              <tr v-for="item in list.length" :key="item.id">
-                <div v-if="list[item]">
-                  <div class="img">
-                    <td><img :src="list[item].image" /></td>
-                  </div>
-                </div>
-              </tr>
-            </table>
-          </div>
-
-          <div class="collum second">
-            <table>
-              <tr v-for="(item) in list.length" :key="item.id">
-                <div v-if="list[item]">
-                  <div class="img">
-                    <td><img :src="list[item].image" /></td>
-                  </div>
-                </div>
-
-              </tr>
-            </table>
-          </div>
-
-          <div class="collum third">
-            <table>
-              <tr v-for="(item) in list.length" :key="item.id">
-                <div v-if="list[item + 1]">
-                  <div class="img">
-                    <td><img :src="list[item + 1].image" /></td>
-                  </div>
-                </div>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="contents fade-in small">
-          <div class="collum first">
-            <table>
-              <tr v-for="item in list.length" :key="item.id">
-                <div v-if="list[item]">
-                  <div class="img">
-                    <td><img :src="list[item].image" /></td>
-                  </div>
-                </div>
-              </tr>
-            </table>
-          </div>
-
-          <div class="collum second">
-            <table>
-              <tr v-for="(item) in list.length" :key="item.id">
-                <div v-if="list[item]">
-                  <div class="img">
-                    <td><img :src="list[item].image" /></td>
-                  </div>
-                </div>
-
-              </tr>
-            </table>
-          </div>
-        </div>
+      </div>
+    </div>
     </div>
 </template>
 
@@ -167,6 +59,23 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.masonry-container{
+  max-width: 1024px;
+  margin: 0 auto;
+  .item{
+    margin-bottom: 20px;
+  }
+}
+
+.masonry-img{
+  width: 220px;
+  img{
+    width: 100%;
+  }
+}
+
+
+
   .big{
     display: flex;
   }
