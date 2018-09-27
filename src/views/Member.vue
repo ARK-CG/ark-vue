@@ -28,7 +28,7 @@ export default {
   max-width: 1024px;
   padding-bottom: 100px;
   margin: 0 auto;
-  padding:50px 15px 100px;
+  padding:50px 30px 100px;
   font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
   text-align: left;
 }

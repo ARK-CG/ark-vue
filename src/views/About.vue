@@ -42,9 +42,9 @@
 
       </div>
 
-      <div class="item odd">
+      <div class="item odd web">
         <div class="img small">
-          <img src="../assets/carmodel.png" alt="">
+          <img src="../assets/motom-sample.png" alt="">
         </div>
         <div class="texts">
           <h2>webアプリケーション</h2>
@@ -52,7 +52,7 @@
             エンジニアコースやデザインコースのメンバーが協力してサービスを作っています。</p>
         </div>
         <div class="img big">
-          <img src="../assets/carmodel.png" alt="">
+          <img src="../assets/motom-sample.png" alt="">
         </div>
       </div>
     </div>
@@ -312,6 +312,12 @@ export default {
       }
     }
   }
+  .web{
+    .img{
+      border: none;
+      width: 340px;
+    }
+  }
   .odd{
     .texts{
       margin-right: 40px;
@@ -450,6 +456,15 @@ td {
           font-size: 14px;
           display: inline-block;
           line-height: 180%;
+        }
+      }
+    }
+    .web{
+      .img{
+        border: none;
+        max-width: 340px;
+        img{
+
         }
       }
     }

@@ -450,7 +450,7 @@ h1{
 .submit{
   border: solid 1.5px #1F4575;
   border-radius: 5px;
-  padding: 5px 8px;
+  padding:8px;
   background: transparent;
   transition: 0.4s;
   width: 100%;
