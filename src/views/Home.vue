@@ -125,6 +125,7 @@ export default {
   left: 0;
   z-index: 10;
   width: 100%;
+
   .navigation{
     background: rgba(0,0,0,0);
     .nav{
@@ -133,6 +134,7 @@ export default {
         margin: 0;
         padding: 0;
         .icon{
+          color: #f0f0f0;
           li{
             font-size: 16px;
             display: inline-block;

@@ -109,7 +109,7 @@ export default {
   .navigation{
     width: 100%;
     padding: 0 5px;
-    background: #1B324F;
+    background: linear-gradient(to bottom, #FfFFFF, #f0f0f0);
     .common{
       display: block;
       max-width: 1024px;
@@ -126,7 +126,7 @@ export default {
         max-width: 320px;
         padding: 0;
         .icon{
-          color: #fafafa;
+          color: #f1f1f1;
           li{
             font-size: 14px;
             display: inline-block;
@@ -135,7 +135,7 @@ export default {
           }
         }
         .icon:hover li{
-          background: #2E435E;
+          background: linear-gradient(to bottom, #f2f2f2, #dfdfdf);
           transition: 0.4s;
         }
       }
