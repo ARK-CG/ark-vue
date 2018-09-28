@@ -4,7 +4,7 @@
   <div class="template">
     <div class="content">
       <div class="content-title">
-        <h1>Aout us</h1>
+        <h1>About us</h1>
         <p>ARKについて</p>
       </div>
       <p class="about">映像制作コンピュータエンジニアリング、グラフィックスデザイン及びインターフェースデザインその他に興味を持った現役大学生の団体です。
