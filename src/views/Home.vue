@@ -26,7 +26,7 @@
       <div class="text">
         <h1 class="big"><span>G</span>allery</h1>
         <div class="detail-text">
-          <p>幅広い分野で、メンバーの得意分野ですきなように作品を作り上げています。テキストが入りますテキストが入りますテキストが入ります</p>
+          <p>幅広い分野で、メンバーの得意分野ですきなように作品を作り上げています。CG・イラストはもちろんwebサービスまで開発しています。</p>
           <div class="button">
             <router-link class="icon icon-layers" to="/gallery">もっと見る</router-link>
           </div>
