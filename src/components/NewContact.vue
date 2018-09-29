@@ -49,6 +49,8 @@
     <!-- 投稿フォーム -->
     <form v-if="user.uid" @submit.prevent="saveContact" autocomplete="off">
       <!-- ラジオボタン -->
+      <div class="form">
+
       <div class="item">
         <div class="item-title">
           <label for="example-url-input" class="">カテゴリー</label>
@@ -114,7 +116,23 @@
           <button type="submit" class="submit">投稿する</button>
         </div>
       </div>
+
+      </div>
+      <!-- submited list -->
+
+      <div class="submited-list">
+        <div class="">
+          <h2>投稿リスト</h2>
+        </div>
+
+        <DeleteSwiper/>
+
+      </div>
+
     </form>
+
+
+
   </section>
 </template>
 <script>
@@ -122,12 +140,16 @@
 import { firebaseApp } from "../firebase.init";
 import firebase from "firebase";
 import "firebase/firestore";
+import DeleteSwiper from "@/components/DeleteSwiper.vue";
 var db = firebaseApp.firestore();
 db.settings({
   timestampsInSnapshots: true
 });
 export default {
   name: "new-contact",
+  components: {
+    DeleteSwiper
+  },
   data() {
     return {
       title: null,
@@ -189,18 +211,36 @@ export default {
         });
     }
   }
+
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 /*未ログイン状態*/
 @media screen and (min-width: 767px) {
+
   .big {
     display: block;
   }
 
   .small{
     display: none;
+  }
+  form{
+    display: flex;
+    .form{
+      flex: 1;
+    }
+    .submited-list{
+      width: 280px;
+      margin: 25px 0;
+      margin-left: 20px;
+      border-left: solid 0.8px #ccc;
+      padding-left: 20px;
+      h2{
+        font-size: 18px;
+      }
+    }
   }
 .attention{
   max-width: 1024px;
