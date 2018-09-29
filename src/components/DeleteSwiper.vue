@@ -1,7 +1,7 @@
 <template>
   <div class="swipers swiper-container">
     <swiper :options="swiperOption">
-      <swiper -slide class="submited-list">
+      <swiper-slide class="submited-list">
         <div class="list-item">
           <div class="text">
             <h3>タイトルが入りますタイトルが入ります</h3>
@@ -37,9 +37,9 @@
             <button type="button" name="button">削除</button>
           </div>
         </div>
-      </swiper>
+      </swiper-slide>
 
-      <swiper -slide class="submited-list">
+      <swiper-slide class="submited-list">
         <div class="list-item">
           <div class="text">
             <h3>タイトルが入りますタイトルが入ります</h3>
@@ -75,51 +75,13 @@
             <button type="button" name="button">削除</button>
           </div>
         </div>
-      </swiper>
+      </swiper-slide>
 
-      <swiper -slide class="submited-list">
-        <div class="list-item">
-          <div class="text">
-            <h3>タイトルが入りますタイトルが入ります</h3>
-            <p class="date">2018/9/29</p>
-            <p>テキストが入りますテキストが入ります</p>
-          </div>
-
-          <div class="delete-btn">
-            <button type="button" name="button">削除</button>
-          </div>
-        </div>
-
-        <div class="list-item">
-          <div class="text">
-            <h3>タイトルが入りますタイトルが入ります</h3>
-            <p class="date">2018/9/29</p>
-            <p>テキストが入りますテキストが入ります</p>
-          </div>
-
-          <div class="delete-btn">
-            <button type="button" name="button">削除</button>
-          </div>
-        </div>
-
-        <div class="list-item">
-          <div class="text">
-            <h3>タイトルが入りますタイトルが入ります</h3>
-            <p class="date">2018/9/29</p>
-            <p>テキストが入りますテキストが入ります</p>
-          </div>
-
-          <div class="delete-btn">
-            <button type="button" name="button">削除</button>
-          </div>
-        </div>
-      </swiper>
     </swiper>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "DeleteSwiper",
   data() {
@@ -128,28 +90,27 @@ export default {
       swiperOption: {
         //http://idangero.us/swiper/api/
         pagination: {
-          el: ".swiper-pagination"
-        },
-        autoplay: {
-          delay: 6000
-        },
-        speed:1000,
-        loop: true,
-        centeredSlides: true,
-        effect:"fade"
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+        direction: 'horizontal',
+        speed:400,
       }
     };
   }
 };
 </script>
 
-<style media="screen" lang="scss">
+<style lang="scss">
+.swiper-container{
+  height: 500px;
+}
   .list-item{
     background: #fff;
     padding: 12px;
     border-radius: 5px;
     box-shadow:0px 0px 3px;
-    margin: 18px 0;
+    margin: 18px 5px;
     .text{
       h3{
         font-size: 14px;

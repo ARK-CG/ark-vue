@@ -140,11 +140,11 @@
 import { firebaseApp } from "../firebase.init";
 import firebase from "firebase";
 import "firebase/firestore";
-import DeleteSwiper from "@/components/DeleteSwiper.vue";
 var db = firebaseApp.firestore();
 db.settings({
   timestampsInSnapshots: true
 });
+import DeleteSwiper from "@/components/DeleteSwiper.vue";
 export default {
   name: "new-contact",
   components: {
@@ -353,6 +353,7 @@ h1{
   padding: 5px 8px;
   background: transparent;
   transition: 0.4s;
+  cursor: pointer;
 }
 
 .user .logout:hover{
@@ -582,6 +583,15 @@ p{
     display: block;
   }
 
+  form{
+    .submited-list{
+      margin-top: 32px;
+      h2{
+        font-size: 18px;
+      }
+    }
+  }
+
 .attention{
   max-width: 1024px;
   margin: 0 auto;
@@ -692,6 +702,7 @@ h1{
   padding: 5px 8px;
   background: transparent;
   transition: 0.4s;
+  cursor: pointer;
 }
 
 .user .logout:hover{

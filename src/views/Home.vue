@@ -63,27 +63,17 @@
 // @ is an alias to /src
 import Swipers from "@/components/Swipers.vue";
 import TopNews from "@/components/TopNews.vue";
-import Modal from "@/components/Modal.vue";
 
 export default {
   name: "home",
   components: {
     Swipers,
-    TopNews,
-    Modal
+    TopNews
   },
   data() {
     return {
       modal: false,
       message: ''
-    }
-  },
-  methods: {
-    openModal() {
-      this.modal = true
-    },
-    closeModal() {
-      this.modal = false
     }
   }
 };

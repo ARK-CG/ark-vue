@@ -7,6 +7,7 @@
         <div class="masonry-img">
           <img :src="item.image" />
         </div>
+        
       </div>
     </div>
 
@@ -60,7 +61,6 @@ export default {
     });
     return {
       list: data ,// 最新状態はここにコピーされる
-      i: 0
     };
   },
   methods: {}
