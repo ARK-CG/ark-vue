@@ -77,6 +77,47 @@
         </div>
       </swiper-slide>
 
+      <swiper-slide class="submited-list">
+        <div class="list-item">
+          <div class="text">
+            <h3>タイトルが入りますタイトルが入ります</h3>
+            <p class="date">2018/9/29</p>
+            <p>テキストが入りますテキストが入ります</p>
+          </div>
+
+          <div class="delete-btn">
+            <button type="button" name="button">削除</button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div class="text">
+            <h3>タイトルが入りますタイトルが入ります</h3>
+            <p class="date">2018/9/29</p>
+            <p>テキストが入りますテキストが入ります</p>
+          </div>
+
+          <div class="delete-btn">
+            <button type="button" name="button">削除</button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div class="text">
+            <h3>タイトルが入りますタイトルが入ります</h3>
+            <p class="date">2018/9/29</p>
+            <p>テキストが入りますテキストが入ります</p>
+          </div>
+
+          <div class="delete-btn">
+            <button type="button" name="button">削除</button>
+          </div>
+        </div>
+      </swiper-slide>
+      
+      <div class="swiper-pagination" slot="pagination"></div>
+
+
     </swiper>
   </div>
 </template>
@@ -90,9 +131,20 @@ export default {
       swiperOption: {
         //http://idangero.us/swiper/api/
         pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
+          el: ".swiper-pagination",
+          type: 'progressbar'
+        },
+        scrollbar: {
+          el: '.swiper-scrollbar',
+          draggable: true,
+        },
+        mousewheel: {
+          invert: false,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
         direction: 'horizontal',
         speed:400,
       }
@@ -104,6 +156,14 @@ export default {
 <style lang="scss">
 .swiper-container{
   height: 500px;
+  .swiper-pagination{
+    height: 8px;
+    border-radius: 3px;
+    .swiper-pagination-progressbar-fill {
+      background-color: #1F4575;
+      border-radius: 3px;
+    }
+  }
 }
   .list-item{
     background: #fff;
