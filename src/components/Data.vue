@@ -87,15 +87,13 @@ export default {
     border-radius: 5px;
     .masonry-img{
       img{
-        border-radius: 5px;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
+        border-radius: 5px 5px 0 0;
       }
     }
     .text{
       width: 220px;
       padding: 12px 18px;
-      background-color: #fdfdfd;
+      background-color: #Fff;
       border-radius: 5px;
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
@@ -108,16 +106,12 @@ export default {
       p{
         font-size: 12px;
         margin: 0;
-      }
-      .category{
-        color: #1E90FF;
+        color: #555;
       }
       .explain{
         margin: 4px 0 0;
-        color: #777;
       }
       .date{
-        color: #ccc;
         font-size: 10px;
       }
     }
