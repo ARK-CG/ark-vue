@@ -36,4 +36,5 @@ export default {
 .member {
   background: #fafafa;
 }
+
 </style>

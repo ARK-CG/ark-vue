@@ -3,7 +3,7 @@
     <header class="">
       <!-- ログイン時にはフォームとログアウトボタンを表示 -->
       <div v-if="user.uid" key="login">
-        <h1>投稿フォーム</h1>
+        <h1>My page</h1>
         <div class="user">
           <p class="name">
             {{ user.displayName }}
@@ -50,6 +50,7 @@
     <form v-if="user.uid" @submit.prevent="saveContact" autocomplete="off">
       <!-- ラジオボタン -->
       <div class="form">
+        <h2>投稿フォーム</h2>
 
       <div class="item">
         <div class="item-title">
@@ -230,6 +231,12 @@ export default {
     display: flex;
     .form{
       flex: 1;
+      margin-top: 25px;
+      h2{
+        font-size: 20px;
+        font-weight: bold;
+      }
+
     }
     .submited-list{
       width: 280px;
@@ -238,7 +245,8 @@ export default {
       border-left: solid 0.8px #ccc;
       padding-left: 20px;
       h2{
-        font-size: 18px;
+        font-size: 20px;
+        font-weight: bold;
       }
     }
   }
@@ -330,7 +338,6 @@ h1{
   font-size: 28px;
   display: inline-block;
   text-align: left;
-  font-weight: bold;
 }
 
 .user{
@@ -584,10 +591,15 @@ p{
   }
 
   form{
+    h2{
+      font-size: 20px;
+      font-weight: bold;
+    }
     .submited-list{
       margin-top: 32px;
       h2{
-        font-size: 18px;
+        font-weight: bold;
+        font-size: 20px;
       }
     }
   }
@@ -680,7 +692,6 @@ h1{
   font-size: 28px;
   display: inline-block;
   text-align: left;
-  font-weight: bold;
 }
 
 .user{

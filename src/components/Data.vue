@@ -24,7 +24,6 @@
       <div class="text">
         <h2>{{item.title}}</h2>
         <p class="date">{{item.date}}</p>
-        <p class="explain">{{item.context}}</p>
       </div>
     </div>
   </div>

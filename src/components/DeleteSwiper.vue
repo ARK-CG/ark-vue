@@ -114,7 +114,7 @@
           </div>
         </div>
       </swiper-slide>
-      
+
       <div class="swiper-pagination" slot="pagination"></div>
 
 
@@ -155,6 +155,7 @@ export default {
 
 <style lang="scss">
 .swiper-container{
+  margin: 12.5px 0 0;
   height: 500px;
   .swiper-pagination{
     height: 8px;
