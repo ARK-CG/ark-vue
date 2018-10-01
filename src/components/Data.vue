@@ -7,7 +7,11 @@
         <div class="masonry-img">
           <img :src="item.image" />
         </div>
-        
+        <div class="text">
+          <h2>{{item.title}}</h2>
+          <p class="date">{{item.date}}</p>
+          <p class="explain">{{item.context}}</p>
+        </div>
       </div>
     </div>
 
@@ -16,6 +20,11 @@
     <div v-masonry-tile class="item" v-for="item in list">
       <div class="masonry-img">
         <img :src="item.image" />
+      </div>
+      <div class="text">
+        <h2>{{item.title}}</h2>
+        <p class="date">{{item.date}}</p>
+        <p class="explain">{{item.context}}</p>
       </div>
     </div>
   </div>
@@ -74,6 +83,44 @@ export default {
   .item{
     margin: 0 8px;
     margin-bottom: 20px;
+    box-shadow: 0 0 2px gray;
+    border-radius: 5px;
+    .masonry-img{
+      img{
+        border-radius: 5px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+    }
+    .text{
+      width: 220px;
+      padding: 12px 18px;
+      background-color: #fdfdfd;
+      border-radius: 5px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      overflow: hidden;
+      h2{
+        font-size: 14px;
+        font-weight: bold;
+        margin: 0 0 2px;
+      }
+      p{
+        font-size: 12px;
+        margin: 0;
+      }
+      .category{
+        color: #1E90FF;
+      }
+      .explain{
+        margin: 4px 0 0;
+        color: #777;
+      }
+      .date{
+        color: #ccc;
+        font-size: 10px;
+      }
+    }
   }
 }
 
@@ -113,6 +160,35 @@ h1{
     width: auto;
     .item{
       margin-bottom: 20px;
+      .text{
+        width: 156px;
+        padding: 12px 6px;
+        background-color: #fdfdfd;
+        border-radius: 5px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        overflow: hidden;
+        h2{
+          font-size: 12px;
+          font-weight: bold;
+          margin: 0 0 2px;
+        }
+        p{
+          font-size: 11px;
+          margin: 0;
+        }
+        .category{
+          color: #1E90FF;
+        }
+        .explain{
+          margin: 4px 0 0;
+          color: #777;
+        }
+        .date{
+          color: #ccc;
+          font-size: 9px;
+        }
+      }
     }
   }
 
