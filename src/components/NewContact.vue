@@ -92,19 +92,18 @@
           <p>必須</p>
         </div>
         <div class="form-item">
-            <div v-if="!image">
+            <div v-if="!image_thum">
               <h2>Select an image</h2>
-              <input type="file" @change="onFileChange">
+              <input type="file" @change="onFileChange" required>
             </div>
             <div v-else>
-              <img :src="image"/>
-              <button @click="removeImage">Remove image</button>
+              <img :src="image_thum" width="30%"/>
+              <!-- <button @click="removeImage">Remove image</button> -->
             </div>
           <input class="" type="url" placeholder="画像だけが表示されるURLを貼ってください" id="example-url-input" v-model="image" class="text-form" required>
           <!--<input type="file" class="" id="exampleInputFile" aria-describedby="fileHelp" disabled="disabled">-->
           <div class="sub-text">
-            <p class="sub">Twitterなどの画像URL</p>
-            <p class="sub">ex) https://pbs.twimg.com/media/??????????.jpg</p>
+            <p class="sub">データURLスキーム</p>
           </div>
           <!--<a target="_blank" href="https://qiita.com/arribux/items/0394968fa318d9309d33">Google Driveから追加する</a>-->
         </div>
@@ -145,8 +144,8 @@
   </section>
 </template>
 <script>
-const Gyazo = require('gyazo-api');
-const client = new Gyazo(
+import Gyazo from 'gyazo-api';
+const gyazo_client = new Gyazo(
   '2143b38eaa21e1fa2fdeb411d935e6fb1e4c5c8c5496744f82b4e3e8ff68e181'
 );
 
@@ -166,6 +165,7 @@ export default {
   },
   data() {
     return {
+      image_thum: null,
       title: null,
       context: null,
       image: null,
@@ -199,18 +199,28 @@ export default {
       if (!files.length) {
         return;
       }
-      this.createImage(files[0]);
+      // Upload to Gyazo
+      gyazo_client
+        .upload(URL.createObjectURL(e.target.files[0]))
+        .then(res => {
+          console.log(res.data.url);
+          this.image = res.data.url;
+          this.createImage(files[0]);
+        })
+        .catch(err => {
+          console.error(err);
+        });
     },
     createImage(file) {
       var image = new Image();
       var reader = new FileReader();
       var vm = this;
       reader.onload = function(e) {
-        vm.image = e.target.result;
+        vm.image_thum = e.target.result;
       };
       reader.readAsDataURL(file);
     },
-    removeImage: function(e) {
+    removeImage() {
       this.image = '';
     },
     // Login
@@ -227,28 +237,18 @@ export default {
         seconds: moment(this.date).unix(),
         nanoseconds: 0 //moment(this.time)
       };
-      // Gyazo
-      client
-        .upload(this.image)
-        .then(res => {
-          console.debug(res.data.url);
-          // Firebase
-          db.collection(this.picked)
-            .add({
-              title: this.title,
-              context: this.context,
-              image: res.data.url,
-              date: date,
-              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-              post_by: this.user.uid
-            })
-            .then(function(docRef) {
-              console.log('Document written with ID: ', docRef.id);
-              location.href = '/';
-            })
-            .catch(function(error) {
-              console.error('Error adding document: ', error);
-            });
+      db.collection(this.picked)
+        .add({
+          title: this.title,
+          context: this.context,
+          image: this.image,
+          date: date,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          post_by: this.user.uid
+        })
+        .then(function(docRef) {
+          console.log('Document written with ID: ', docRef.id);
+          location.href = '/';
         })
         .catch(err => {
           console.error(err);
