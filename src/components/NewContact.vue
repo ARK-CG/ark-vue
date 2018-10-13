@@ -92,6 +92,14 @@
           <p>必須</p>
         </div>
         <div class="form-item">
+            <div v-if="!image">
+              <h2>Select an image</h2>
+              <input type="file" @change="onFileChange">
+            </div>
+            <div v-else>
+              <img :src="image"/>
+              <button @click="removeImage">Remove image</button>
+            </div>
           <input class="" type="url" placeholder="画像だけが表示されるURLを貼ってください" id="example-url-input" v-model="image" class="text-form" required>
           <!--<input type="file" class="" id="exampleInputFile" aria-describedby="fileHelp" disabled="disabled">-->
           <div class="sub-text">
@@ -137,17 +145,22 @@
   </section>
 </template>
 <script>
+const Gyazo = require('gyazo-api');
+const client = new Gyazo(
+  '2143b38eaa21e1fa2fdeb411d935e6fb1e4c5c8c5496744f82b4e3e8ff68e181'
+);
+
 //https://console.firebase.google.com/
-import { firebaseApp } from "../firebase.init";
-import firebase from "firebase";
-import "firebase/firestore";
+import { firebaseApp } from '../firebase.init';
+import firebase from 'firebase';
+import 'firebase/firestore';
 var db = firebaseApp.firestore();
 db.settings({
   timestampsInSnapshots: true
 });
-import DeleteSwiper from "@/components/DeleteSwiper.vue";
+import DeleteSwiper from '@/components/DeleteSwiper.vue';
 export default {
-  name: "new-contact",
+  name: 'new-contact',
   components: {
     DeleteSwiper
   },
@@ -167,11 +180,11 @@ export default {
       this.user = user ? user : {};
       if (!user.email.match(/^[A-Za-z0-9]+[\w-]+@iniad.org$/)) {
         firebase.auth().signOut();
-        alert("INIADアカウントでログインしてください");
+        alert('INIADアカウントでログインしてください');
         user
           .delete()
           .then(function() {
-            console.log("User deleted.");
+            console.log('User deleted.');
           })
           .catch(function(error) {
             // An error happened.
@@ -180,6 +193,27 @@ export default {
     });
   },
   methods: {
+    // Gyazo API
+    onFileChange: function(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      if (!files.length) {
+        return;
+      }
+      this.createImage(files[0]);
+    },
+    createImage(file) {
+      var image = new Image();
+      var reader = new FileReader();
+      var vm = this;
+      reader.onload = function(e) {
+        vm.image = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    removeImage: function(e) {
+      this.image = '';
+    },
+    // Login
     doGoogle() {
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider);
@@ -193,750 +227,754 @@ export default {
         seconds: moment(this.date).unix(),
         nanoseconds: 0 //moment(this.time)
       };
-      db
-        .collection(this.picked)
-        .add({
-          title: this.title,
-          context: this.context,
-          image: this.image,
-          date: date,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-          post_by: this.user.uid
+      // Gyazo
+      client
+        .upload(this.image)
+        .then(res => {
+          console.debug(res.data.url);
+          // Firebase
+          db.collection(this.picked)
+            .add({
+              title: this.title,
+              context: this.context,
+              image: res.data.url,
+              date: date,
+              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+              post_by: this.user.uid
+            })
+            .then(function(docRef) {
+              console.log('Document written with ID: ', docRef.id);
+              location.href = '/';
+            })
+            .catch(function(error) {
+              console.error('Error adding document: ', error);
+            });
         })
-        .then(function(docRef) {
-          console.log("Document written with ID: ", docRef.id);
-          location.href = "/";
-        })
-        .catch(function(error) {
-          console.error("Error adding document: ", error);
+        .catch(err => {
+          console.error(err);
         });
     }
   }
-
 };
 </script>
 
 <style scoped lang="scss">
 /*未ログイン状態*/
 @media screen and (min-width: 767px) {
-
   .big {
     display: block;
   }
 
-  .small{
+  .small {
     display: none;
   }
-  form{
+  form {
     display: flex;
-    .form{
+    .form {
       flex: 1;
       margin-top: 25px;
-      h2{
+      h2 {
         font-size: 20px;
         font-weight: bold;
       }
-
     }
-    .submited-list{
+    .submited-list {
       width: 280px;
       margin: 25px 0;
       margin-left: 20px;
       border-left: solid 0.8px #ccc;
       padding-left: 20px;
-      h2{
+      h2 {
         font-size: 20px;
         font-weight: bold;
       }
     }
   }
-.attention{
-  max-width: 1024px;
-  margin: 0 auto;
-  text-align: left;
-  color: red;
-  font-size: 10px;
-  margin: 0 auto 5px;
-}
-.login-form{
-  display: inline-block;
-  margin: 0px auto;
-  background: #fff;
-  padding: 15px 22px;
-  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
-  border-radius: 5px;
-  white-space: nowrap;
-}
-.login-item{
-  text-align: left;
-  margin-bottom: 15px;
-}
+  .attention {
+    max-width: 1024px;
+    margin: 0 auto;
+    text-align: left;
+    color: red;
+    font-size: 10px;
+    margin: 0 auto 5px;
+  }
+  .login-form {
+    display: inline-block;
+    margin: 0px auto;
+    background: #fff;
+    padding: 15px 22px;
+    box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+  .login-item {
+    text-align: left;
+    margin-bottom: 15px;
+  }
 
-.login-form .button{
-  border: solid 1.5px #1F4575;
-  border-radius: 5px;
-  padding: 2px 8px;
-  background: transparent;
-  transition: 0.4s;
-  width: 100%;
-  cursor: pointer;
-  color: #1F4575;
-  font-weight: bold;
-  margin-top: 10px;
-}
+  .login-form .button {
+    border: solid 1.5px #1f4575;
+    border-radius: 5px;
+    padding: 2px 8px;
+    background: transparent;
+    transition: 0.4s;
+    width: 100%;
+    cursor: pointer;
+    color: #1f4575;
+    font-weight: bold;
+    margin-top: 10px;
+  }
 
-.login-form .button:hover{
-  background:#1F4575;
-  transition: 0.4s;
-  color: #fff;
-  transition: 0.4s;
-}
+  .login-form .button:hover {
+    background: #1f4575;
+    transition: 0.4s;
+    color: #fff;
+    transition: 0.4s;
+  }
 
-.login-label{
-  font-size: 14px;
-  display: block;
-  margin-bottom: 4px;
-}
+  .login-label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 4px;
+  }
 
-.login-input{
-  border: solid 0.8px #ccc;
-  border-radius: 5px;
-  height: 28px;
-  padding: 0 8px;
-  font-size: 14px;
-}
+  .login-input {
+    border: solid 0.8px #ccc;
+    border-radius: 5px;
+    height: 28px;
+    padding: 0 8px;
+    font-size: 14px;
+  }
 
-.deco p{
-  margin: 0;
-  color: #ccc;
-  font-size: 12px;
-  text-align: center;
-  margin: 20px 0;
-  position: relative;
-  display: inline-block;
-}
+  .deco p {
+    margin: 0;
+    color: #ccc;
+    font-size: 12px;
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    display: inline-block;
+  }
 
-.deco p::before{
-  content: "";
-  border: solid #ccc 0.5px;
-  position: absolute;
-  width: 60px;
-  left: -70px;
-  top: 9px;
-}
+  .deco p::before {
+    content: '';
+    border: solid #ccc 0.5px;
+    position: absolute;
+    width: 60px;
+    left: -70px;
+    top: 9px;
+  }
 
-.deco p::after{
-  content: "";
-  border: solid #ccc 0.5px;
-  position: absolute;
-  width: 60px;
-  right: -70px;
-  top: 9px;
-}
+  .deco p::after {
+    content: '';
+    border: solid #ccc 0.5px;
+    position: absolute;
+    width: 60px;
+    right: -70px;
+    top: 9px;
+  }
 
-h1{
-  font-size: 28px;
-  display: inline-block;
-  text-align: left;
-}
+  h1 {
+    font-size: 28px;
+    display: inline-block;
+    text-align: left;
+  }
 
-.user{
-  text-align: right;
-}
-.user p{
-  display: inline-block;
-  font-weight: bold;
-}
+  .user {
+    text-align: right;
+  }
+  .user p {
+    display: inline-block;
+    font-weight: bold;
+  }
 
-.user .name{
-  font-size: 14px;
+  .user .name {
+    font-size: 14px;
 
-  margin: 0 24px;
-}
+    margin: 0 24px;
+  }
 
-.user .logout{
-  border: solid 1.5px #1F4575;
-  border-radius: 5px;
-  padding: 5px 8px;
-  background: transparent;
-  transition: 0.4s;
-  cursor: pointer;
-}
+  .user .logout {
+    border: solid 1.5px #1f4575;
+    border-radius: 5px;
+    padding: 5px 8px;
+    background: transparent;
+    transition: 0.4s;
+    cursor: pointer;
+  }
 
-.user .logout:hover{
-  background:#1F4575;
-  transition: 0.4s;
-}
+  .user .logout:hover {
+    background: #1f4575;
+    transition: 0.4s;
+  }
 
-.user .logout p{
-  color: #1F4575;
-  transition: 0.4s;
-  font-size: 14px;
-}
+  .user .logout p {
+    color: #1f4575;
+    transition: 0.4s;
+    font-size: 14px;
+  }
 
-.user .logout:hover p{
-  color: #fff;
-  transition: 0.4s;
-}
+  .user .logout:hover p {
+    color: #fff;
+    transition: 0.4s;
+  }
 
-.header {
-  margin-bottom: 2em;
-  padding: 0.4em 0.8em;
-}
+  .header {
+    margin-bottom: 2em;
+    padding: 0.4em 0.8em;
+  }
 
-.header btn-logout {
-  color: white;
-  background-color: #5c5c5c;
-}
+  .header btn-logout {
+    color: white;
+    background-color: #5c5c5c;
+  }
 
-.item{
+  .item {
     display: flex;
     margin: 25px 0;
-}
+  }
 
-.item-title{
-  width: 180px;
-  margin-right: 20px;
-  text-align: left;
-  align-items: center;
-  display: flex;
-  font-weight: bold;
-}
+  .item-title {
+    width: 180px;
+    margin-right: 20px;
+    text-align: left;
+    align-items: center;
+    display: flex;
+    font-weight: bold;
+  }
 
-.item-title label{
-}
+  .item-title label {
+  }
 
-.item-title p{
-  background: #E5000B;
-  color: #fff;
-  font-size: 8px;
-  border-radius: 4px;
-  padding: 5px 8px;
-  margin-left: 15px;
-}
+  .item-title p {
+    background: #e5000b;
+    color: #fff;
+    font-size: 8px;
+    border-radius: 4px;
+    padding: 5px 8px;
+    margin-left: 15px;
+  }
 
-.item .pic-form{
-  display: flex;
-  align-items: flex-start;
-}
+  .item .pic-form {
+    display: flex;
+    align-items: flex-start;
+  }
 
-.form-item{
-  flex: 1;
-  text-align: left;
-}
+  .form-item {
+    flex: 1;
+    text-align: left;
+  }
 
-.text-form{
-  width: 100%;
-  border: solid 0.8px #ccc;
-  border-radius: 5px;
-  height: 32px;
-  padding: 3px 8px;
-  font-size: 14px;
-}
+  .text-form {
+    width: 100%;
+    border: solid 0.8px #ccc;
+    border-radius: 5px;
+    height: 32px;
+    padding: 3px 8px;
+    font-size: 14px;
+  }
 
-.form-item textarea{
-  width: 100%;
-  border: solid 0.8px #ccc;
-  border-radius: 5px;
-  height: 95px;
-  padding: 3px 8px;
-  font-size: 14px;
-  line-height: 160%;
-}
+  .form-item textarea {
+    width: 100%;
+    border: solid 0.8px #ccc;
+    border-radius: 5px;
+    height: 95px;
+    padding: 3px 8px;
+    font-size: 14px;
+    line-height: 160%;
+  }
 
-/*ラジオボタン*/
-.radio{
-  display: none;
-}
+  /*ラジオボタン*/
+  .radio {
+    display: none;
+  }
 
-.radio + .reradio{
-  padding-left: 25px;
-  position:relative;
-  margin-right: 20px;
-  cursor: pointer;
-}
+  .radio + .reradio {
+    padding-left: 25px;
+    position: relative;
+    margin-right: 20px;
+    cursor: pointer;
+  }
 
-.radio + .reradio::before{
-  content: "";
-  display: block;
-  position: absolute;
-  top: 2px;
-  left: 0;
-  width: 18px;
-  height: 18px;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-}
+  .radio + .reradio::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+  }
 
-.radio:checked + .reradio::after{
-  content: "";
-  display: block;
-  position: absolute;
-  top: 5.5px;
-  left: 3.55px;
-  width: 11px;
-  height: 11px;
-  background: #1F4575;
-  border-radius: 50%;
-}
+  .radio:checked + .reradio::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5.5px;
+    left: 3.55px;
+    width: 11px;
+    height: 11px;
+    background: #1f4575;
+    border-radius: 50%;
+  }
 
-.sub-text{
-  margin-top: 4px;
-}
+  .sub-text {
+    margin-top: 4px;
+  }
 
-.sub{
-  font-size: 14px;
-  color: #aaa;
-  margin: 0;
-}
+  .sub {
+    font-size: 14px;
+    color: #aaa;
+    margin: 0;
+  }
 
-.submit-btn{
-  width: 100%;
-  margin-top: 50px;
-}
+  .submit-btn {
+    width: 100%;
+    margin-top: 50px;
+  }
 
-.submit{
-  border: solid 1.5px #1F4575;
-  border-radius: 5px;
-  padding:8px;
-  background: transparent;
-  transition: 0.4s;
-  width: 100%;
-  cursor: pointer;
-  color: #1F4575;
-  font-weight: bold;
-}
+  .submit {
+    border: solid 1.5px #1f4575;
+    border-radius: 5px;
+    padding: 8px;
+    background: transparent;
+    transition: 0.4s;
+    width: 100%;
+    cursor: pointer;
+    color: #1f4575;
+    font-weight: bold;
+  }
 
-.submit:hover{
-  background:#1F4575;
-  transition: 0.4s;
-  color: #fff;
-  transition: 0.4s;
-}
+  .submit:hover {
+    background: #1f4575;
+    transition: 0.4s;
+    color: #fff;
+    transition: 0.4s;
+  }
 
-label{
-  margin: 0;
-}
+  label {
+    margin: 0;
+  }
 
-p{
-  margin: 0;
-}
+  p {
+    margin: 0;
+  }
 
-/*googleボタン*/
-.login{
-  text-align: center;
-  margin: 20px auto;
-  border-radius: 8px;
-}
+  /*googleボタン*/
+  .login {
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 8px;
+  }
 
-.login h1{
-  text-align: center;
-  font-size: 28px;
-}
+  .login h1 {
+    text-align: center;
+    font-size: 28px;
+  }
 
-.google-button {
-  height: 40px;
-  border-width: 0;
-  background: white;
-  color: #737373;
-  white-space: nowrap;
-  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
-  transition-property: background-color, box-shadow;
-  transition-duration: 150ms;
-  transition-timing-function: ease-in-out;
-  padding: 0;
-  border-radius: 5px;
-}
+  .google-button {
+    height: 40px;
+    border-width: 0;
+    background: white;
+    color: #737373;
+    white-space: nowrap;
+    box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
+    transition-property: background-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+    padding: 0;
+    border-radius: 5px;
+  }
 
-.google-button:focus,
-.google-button:hover {
-  box-shadow: 1px 4px 5px 1px rgba(0, 0, 0, 0.1);
-}
+  .google-button:focus,
+  .google-button:hover {
+    box-shadow: 1px 4px 5px 1px rgba(0, 0, 0, 0.1);
+  }
 
-.google-button:active {
-  background-color: #e5e5e5;
-  box-shadow: none;
-  transition-duration: 10ms;
-}
+  .google-button:active {
+    background-color: #e5e5e5;
+    box-shadow: none;
+    transition-duration: 10ms;
+  }
 
-.google-button__icon {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 8px 0 8px 8px;
-  box-sizing: border-box;
-  width: 18px;
-  height: 18px;
-}
+  .google-button__icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 8px 0 8px 8px;
+    box-sizing: border-box;
+    width: 18px;
+    height: 18px;
+  }
 
-.google-button__icon--plus {
-  width: 27px;
-}
-.google-button__text {
-  display: inline-block;
-  vertical-align: middle;
-  padding: 0 24px;
-  font-size: 14px;
-  font-weight: bold;
-  font-family: "Roboto", arial, sans-serif;
-}
-
+  .google-button__icon--plus {
+    width: 27px;
+  }
+  .google-button__text {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 24px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Roboto', arial, sans-serif;
+  }
 }
 
 @media screen and (max-width: 767px) {
-  .big{
+  .big {
     display: none;
   }
   .small {
     display: block;
   }
 
-  form{
-    h2{
+  form {
+    h2 {
       font-size: 20px;
       font-weight: bold;
     }
-    .submited-list{
+    .submited-list {
       margin-top: 32px;
-      h2{
+      h2 {
         font-weight: bold;
         font-size: 20px;
       }
     }
   }
 
-.attention{
-  max-width: 1024px;
-  margin: 0 auto;
-  text-align: left;
-  color: red;
-  font-size: 10px;
-  margin: 0 auto 5px;
-}
-.login-form{
-  display: inline-block;
-  margin: 0px auto;
-  background: #fff;
-  padding: 15px 22px;
-  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
-  border-radius: 5px;
-  white-space: nowrap;
-}
-.login-item{
-  text-align: left;
-  margin-bottom: 15px;
-}
+  .attention {
+    max-width: 1024px;
+    margin: 0 auto;
+    text-align: left;
+    color: red;
+    font-size: 10px;
+    margin: 0 auto 5px;
+  }
+  .login-form {
+    display: inline-block;
+    margin: 0px auto;
+    background: #fff;
+    padding: 15px 22px;
+    box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+  .login-item {
+    text-align: left;
+    margin-bottom: 15px;
+  }
 
-.login-form .button{
-  border: solid 1.5px #1F4575;
-  border-radius: 5px;
-  padding: 2px 8px;
-  background: transparent;
-  transition: 0.4s;
-  width: 100%;
-  cursor: pointer;
-  color: #1F4575;
-  font-weight: bold;
-  margin-top: 10px;
-}
+  .login-form .button {
+    border: solid 1.5px #1f4575;
+    border-radius: 5px;
+    padding: 2px 8px;
+    background: transparent;
+    transition: 0.4s;
+    width: 100%;
+    cursor: pointer;
+    color: #1f4575;
+    font-weight: bold;
+    margin-top: 10px;
+  }
 
-.login-form .button:hover{
-  background:#1F4575;
-  transition: 0.4s;
-  color: #fff;
-  transition: 0.4s;
-}
+  .login-form .button:hover {
+    background: #1f4575;
+    transition: 0.4s;
+    color: #fff;
+    transition: 0.4s;
+  }
 
-.login-label{
-  font-size: 14px;
-  display: block;
-  margin-bottom: 4px;
-}
+  .login-label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 4px;
+  }
 
-.login-input{
-  border: solid 0.8px #ccc;
-  border-radius: 5px;
-  height: 28px;
-  padding: 0 8px;
-  font-size: 14px;
-}
+  .login-input {
+    border: solid 0.8px #ccc;
+    border-radius: 5px;
+    height: 28px;
+    padding: 0 8px;
+    font-size: 14px;
+  }
 
-.deco p{
-  margin: 0;
-  color: #ccc;
-  font-size: 12px;
-  text-align: center;
-  margin: 20px 0;
-  position: relative;
-  display: inline-block;
-}
+  .deco p {
+    margin: 0;
+    color: #ccc;
+    font-size: 12px;
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    display: inline-block;
+  }
 
-.deco p::before{
-  content: "";
-  border: solid #ccc 0.5px;
-  position: absolute;
-  width: 60px;
-  left: -70px;
-  top: 9px;
-}
+  .deco p::before {
+    content: '';
+    border: solid #ccc 0.5px;
+    position: absolute;
+    width: 60px;
+    left: -70px;
+    top: 9px;
+  }
 
-.deco p::after{
-  content: "";
-  border: solid #ccc 0.5px;
-  position: absolute;
-  width: 60px;
-  right: -70px;
-  top: 9px;
-}
+  .deco p::after {
+    content: '';
+    border: solid #ccc 0.5px;
+    position: absolute;
+    width: 60px;
+    right: -70px;
+    top: 9px;
+  }
 
-h1{
-  font-size: 28px;
-  display: inline-block;
-  text-align: left;
-}
+  h1 {
+    font-size: 28px;
+    display: inline-block;
+    text-align: left;
+  }
 
-.user{
-  text-align: right;
-}
-.user p{
-  display: block;
-  font-weight: bold;
-}
+  .user {
+    text-align: right;
+  }
+  .user p {
+    display: block;
+    font-weight: bold;
+  }
 
-.user .name{
-  font-size: 14px;
-  margin-bottom: 5px;
-}
+  .user .name {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
 
-.user .logout{
-  border: solid 1.5px #1F4575;
-  border-radius: 5px;
-  padding: 5px 8px;
-  background: transparent;
-  transition: 0.4s;
-  cursor: pointer;
-}
+  .user .logout {
+    border: solid 1.5px #1f4575;
+    border-radius: 5px;
+    padding: 5px 8px;
+    background: transparent;
+    transition: 0.4s;
+    cursor: pointer;
+  }
 
-.user .logout:hover{
-  background:#1F4575;
-  transition: 0.4s;
-}
+  .user .logout:hover {
+    background: #1f4575;
+    transition: 0.4s;
+  }
 
-.user .logout p{
-  color: #1F4575;
-  transition: 0.4s;
-  font-size: 14px;
-}
+  .user .logout p {
+    color: #1f4575;
+    transition: 0.4s;
+    font-size: 14px;
+  }
 
-.user .logout:hover p{
-  color: #fff;
-  transition: 0.4s;
-}
+  .user .logout:hover p {
+    color: #fff;
+    transition: 0.4s;
+  }
 
-.header {
-  margin-bottom: 2em;
-  padding: 0.4em 0.8em;
-}
+  .header {
+    margin-bottom: 2em;
+    padding: 0.4em 0.8em;
+  }
 
-.header btn-logout {
-  color: white;
-  background-color: #5c5c5c;
-}
+  .header btn-logout {
+    color: white;
+    background-color: #5c5c5c;
+  }
 
-.item{
+  .item {
     display: block;
     margin: 25px 0;
-}
+  }
 
-.item-title{
-  width: 180px;
-  margin-right: 20px;
-  margin-bottom: 18px;
-  text-align: left;
-  align-items: center;
-  display: flex;
-  font-weight: bold;
-}
+  .item-title {
+    width: 180px;
+    margin-right: 20px;
+    margin-bottom: 18px;
+    text-align: left;
+    align-items: center;
+    display: flex;
+    font-weight: bold;
+  }
 
-.item-title label{
-}
+  .item-title label {
+  }
 
-.item-title p{
-  background: #E5000B;
-  color: #fff;
-  font-size: 8px;
-  border-radius: 4px;
-  padding: 5px 8px;
-  margin-left: 15px;
-}
+  .item-title p {
+    background: #e5000b;
+    color: #fff;
+    font-size: 8px;
+    border-radius: 4px;
+    padding: 5px 8px;
+    margin-left: 15px;
+  }
 
-.item .pic-form{
-  display: flex;
-  align-items: flex-start;
-}
+  .item .pic-form {
+    display: flex;
+    align-items: flex-start;
+  }
 
-.form-item{
-  flex: 1;
-  text-align: left;
-}
+  .form-item {
+    flex: 1;
+    text-align: left;
+  }
 
-.text-form{
-  width: 100%;
-  border: solid 0.8px #ccc;
-  border-radius: 5px;
-  height: 32px;
-  padding: 3px 8px;
-  font-size: 14px;
-}
+  .text-form {
+    width: 100%;
+    border: solid 0.8px #ccc;
+    border-radius: 5px;
+    height: 32px;
+    padding: 3px 8px;
+    font-size: 14px;
+  }
 
-.form-item textarea{
-  width: 100%;
-  border: solid 0.8px #ccc;
-  border-radius: 5px;
-  height: 95px;
-  padding: 3px 8px;
-  font-size: 14px;
-  line-height: 160%;
-}
+  .form-item textarea {
+    width: 100%;
+    border: solid 0.8px #ccc;
+    border-radius: 5px;
+    height: 95px;
+    padding: 3px 8px;
+    font-size: 14px;
+    line-height: 160%;
+  }
 
-/*ラジオボタン*/
-.radio{
-  display: none;
-}
+  /*ラジオボタン*/
+  .radio {
+    display: none;
+  }
 
-.radio-item{
-  margin: 8px 0;
-}
+  .radio-item {
+    margin: 8px 0;
+  }
 
-.radio + .reradio{
-  padding-left: 25px;
-  position:relative;
-  margin-right: 20px;
-  cursor: pointer;
-}
+  .radio + .reradio {
+    padding-left: 25px;
+    position: relative;
+    margin-right: 20px;
+    cursor: pointer;
+  }
 
-.radio + .reradio::before{
-  content: "";
-  display: block;
-  position: absolute;
-  top: 2px;
-  left: 0;
-  width: 18px;
-  height: 18px;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-}
+  .radio + .reradio::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+  }
 
-.radio:checked + .reradio::after{
-  content: "";
-  display: block;
-  position: absolute;
-  top: 5.5px;
-  left: 3.55px;
-  width: 11px;
-  height: 11px;
-  background: #1F4575;
-  border-radius: 50%;
-}
+  .radio:checked + .reradio::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5.5px;
+    left: 3.55px;
+    width: 11px;
+    height: 11px;
+    background: #1f4575;
+    border-radius: 50%;
+  }
 
-.sub-text{
-  margin-top: 4px;
-}
+  .sub-text {
+    margin-top: 4px;
+  }
 
-.sub{
-  font-size: 14px;
-  color: #aaa;
-  margin: 0;
-}
+  .sub {
+    font-size: 14px;
+    color: #aaa;
+    margin: 0;
+  }
 
-.submit-btn{
-  width: 100%;
-  margin-top: 50px;
-}
+  .submit-btn {
+    width: 100%;
+    margin-top: 50px;
+  }
 
-.submit{
-  border: solid 1.5px #1F4575;
-  border-radius: 5px;
-  padding: 5px 8px;
-  background: transparent;
-  transition: 0.4s;
-  width: 100%;
-  cursor: pointer;
-  color: #1F4575;
-  font-weight: bold;
-}
+  .submit {
+    border: solid 1.5px #1f4575;
+    border-radius: 5px;
+    padding: 5px 8px;
+    background: transparent;
+    transition: 0.4s;
+    width: 100%;
+    cursor: pointer;
+    color: #1f4575;
+    font-weight: bold;
+  }
 
-.submit:hover{
-  background:#1F4575;
-  transition: 0.4s;
-  color: #fff;
-  transition: 0.4s;
-}
+  .submit:hover {
+    background: #1f4575;
+    transition: 0.4s;
+    color: #fff;
+    transition: 0.4s;
+  }
 
-label{
-  margin: 0;
-}
+  label {
+    margin: 0;
+  }
 
-p{
-  margin: 0;
-}
+  p {
+    margin: 0;
+  }
 
-/*googleボタン*/
-.login{
-  text-align: center;
-  margin: 20px auto;
-  border-radius: 8px;
-}
+  /*googleボタン*/
+  .login {
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 8px;
+  }
 
-.login h1{
-  text-align: center;
-  font-size: 28px;
-}
+  .login h1 {
+    text-align: center;
+    font-size: 28px;
+  }
 
-.google-button {
-  height: 40px;
-  border-width: 0;
-  background: white;
-  color: #737373;
-  white-space: nowrap;
-  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
-  transition-property: background-color, box-shadow;
-  transition-duration: 150ms;
-  transition-timing-function: ease-in-out;
-  padding: 0;
-  border-radius: 5px;
-}
+  .google-button {
+    height: 40px;
+    border-width: 0;
+    background: white;
+    color: #737373;
+    white-space: nowrap;
+    box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
+    transition-property: background-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+    padding: 0;
+    border-radius: 5px;
+  }
 
-.google-button:focus,
-.google-button:hover {
-  box-shadow: 1px 4px 5px 1px rgba(0, 0, 0, 0.1);
-}
+  .google-button:focus,
+  .google-button:hover {
+    box-shadow: 1px 4px 5px 1px rgba(0, 0, 0, 0.1);
+  }
 
-.google-button:active {
-  background-color: #e5e5e5;
-  box-shadow: none;
-  transition-duration: 10ms;
-}
+  .google-button:active {
+    background-color: #e5e5e5;
+    box-shadow: none;
+    transition-duration: 10ms;
+  }
 
-.google-button__icon {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 8px 0 8px 8px;
-  box-sizing: border-box;
-  width: 18px;
-  height: 18px;
-}
+  .google-button__icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 8px 0 8px 8px;
+    box-sizing: border-box;
+    width: 18px;
+    height: 18px;
+  }
 
-.google-button__icon--plus {
-  width: 27px;
-}
-.google-button__text {
-  display: inline-block;
-  vertical-align: middle;
-  padding: 0 24px;
-  font-size: 14px;
-  font-weight: bold;
-  font-family: "Roboto", arial, sans-serif;
-}
-
+  .google-button__icon--plus {
+    width: 27px;
+  }
+  .google-button__text {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 24px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Roboto', arial, sans-serif;
+  }
 }
 </style>
