@@ -92,19 +92,20 @@
           <p>必須</p>
         </div>
         <div class="form-item">
-            <div v-if="!image_thum">
-              <h2>Select an image</h2>
-              <input type="file" @change="onFileChange" required>
+            <div v-if="!image_url">
+              <form id="imgur">
+                  <input type="file" @change="onFileChange" class="imgur" accept="image/*" required/>
+              </form>
             </div>
             <div v-else>
-              <img :src="image_thum" width="30%"/>
-              <!-- <button @click="removeImage">Remove image</button> -->
+              <img :src="image_url" width="30%"/>
+              <button type="button" @click="removeImage">取り消す</button>
             </div>
-          <input class="" type="url" placeholder="画像だけが表示されるURLを貼ってください" id="example-url-input" v-model="image" class="text-form" required>
+          <!-- <input class="" type="url" placeholder="画像だけが表示されるURLを貼ってください" id="example-url-input" v-model="image_url" class="text-form" required> -->
           <!--<input type="file" class="" id="exampleInputFile" aria-describedby="fileHelp" disabled="disabled">-->
-          <div class="sub-text">
+          <!-- <div class="sub-text">
             <p class="sub">データURLスキーム</p>
-          </div>
+          </div> -->
           <!--<a target="_blank" href="https://qiita.com/arribux/items/0394968fa318d9309d33">Google Driveから追加する</a>-->
         </div>
       </div>
@@ -144,11 +145,8 @@
   </section>
 </template>
 <script>
-import Gyazo from 'gyazo-api';
-const gyazo_client = new Gyazo(
-  '2143b38eaa21e1fa2fdeb411d935e6fb1e4c5c8c5496744f82b4e3e8ff68e181'
-);
-
+global.jQuery = require('jquery');
+var $ = global.jQuery;
 //https://console.firebase.google.com/
 import { firebaseApp } from '../firebase.init';
 import firebase from 'firebase';
@@ -168,7 +166,7 @@ export default {
       image_thum: null,
       title: null,
       context: null,
-      image: null,
+      image_url: null,
       date: null,
       time: null,
       picked: null,
@@ -193,22 +191,46 @@ export default {
     });
   },
   methods: {
-    // Gyazo API
     onFileChange: function(e) {
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length) {
         return;
       }
-      // Upload to Gyazo
-      gyazo_client
-        .upload(URL.createObjectURL(e.target.files[0]))
-        .then(res => {
-          console.log(res.data.url);
-          this.image = res.data.url;
-          this.createImage(files[0]);
+      // Replace ctrlq with your own API key
+      var apiUrl = 'https://api.imgur.com/3/image';
+      var apiKey = 'cc86a8de0e7c459';
+
+      var settings = {
+        async: false,
+        crossDomain: true,
+        processData: false,
+        contentType: false,
+        type: 'POST',
+        url: apiUrl,
+        headers: {
+          Authorization: 'Client-ID ' + apiKey,
+          Accept: 'application/json'
+        },
+        mimeType: 'multipart/form-data'
+      };
+
+      var formData = new FormData();
+      formData.append('image', files[0]);
+      settings.data = formData;
+      this.createImage(files[0]);
+
+      // Response contains stringified JSON
+      // Image URL available at response.data.link
+      var tmp_url = '';
+      $.ajax(settings)
+        .done(function(response) {
+          response = JSON.parse(response);
+          tmp_url = response.data.link;
+          console.log('tmp_url : ' + tmp_url);
         })
-        .catch(err => {
-          console.error(err);
+        .always(() => {
+          this.image_url = tmp_url;
+          console.log('this.image_url : ' + this.image_url);
         });
     },
     createImage(file) {
@@ -221,7 +243,8 @@ export default {
       reader.readAsDataURL(file);
     },
     removeImage() {
-      this.image = '';
+      this.image_url = '';
+      console.log('this.image_url : ' + this.image_url);
     },
     // Login
     doGoogle() {
@@ -241,7 +264,7 @@ export default {
         .add({
           title: this.title,
           context: this.context,
-          image: this.image,
+          image: this.image_url,
           date: date,
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           post_by: this.user.uid
