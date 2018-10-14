@@ -62,7 +62,7 @@
           <label class="reradio" for="customRadioInline1">Gallery</label>
         </div>
         <div class="radio-item">
-          <input type="radio" id="customRadioInline2" name="customRadioInline" class="radio" v-model="picked" value="news" required>
+          <input type="radio" id="customRadioInline2" name="customRadioInline" class="radio" v-model="picked" value="news">
           <label class="reradio" for="customRadioInline2">News</label>
         </div>
       </div>
@@ -93,9 +93,7 @@
         </div>
         <div class="form-item">
             <div v-if="!image_url">
-              <form id="imgur">
-                  <input type="file" @change="onFileChange" class="imgur" accept="image/*" required/>
-              </form>
+              <input type="file" @change="onFileChange" class="imgur" accept="image/*" required/>
             </div>
             <div v-else>
               <img :src="image_url" width="30%"/>
