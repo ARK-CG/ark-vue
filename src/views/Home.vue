@@ -254,16 +254,15 @@ export default {
       background: linear-gradient(to bottom, #ffffff, #f0f0f0);
       .nav {
         ul {
-          display: flex;
-          justify-content: space-between;
+
           list-style: none;
-          margin: 0 auto;
+
           max-width: 320px;
           padding: 0;
           .icon {
-            color: #555;
+            color: #fff;
             li {
-              font-size: 14px;
+              font-size: 16px;
               display: inline-block;
               padding: 12px 10px;
               transition: 0.4s;

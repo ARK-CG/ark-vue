@@ -58,6 +58,7 @@ export default {
 
   .swiper-container {
     position: relative;
+    margin: 0;
     .top-nav{
       position: absolute;
       top: 0;
@@ -122,6 +123,7 @@ export default {
   }
 
   .swiper-container {
+    margin: 0;
     position: relative;
     .top-nav{
       position: absolute;
@@ -130,7 +132,7 @@ export default {
       z-index: 10;
       width: 100%;
       .navigation{
-        background: linear-gradient(to bottom, rgba(242, 242, 242,0.6), rgba(223, 223, 223,0.8));
+        background: linear-gradient(to bottom, rgba(242, 242, 242,1), rgba(223, 223, 223,1));
         .nav{
           ul{
             list-style: none;
@@ -139,7 +141,7 @@ export default {
             .icon{
 
               li{
-                font-size: 14px;
+                font-size: 16px;
                 display: inline-block;
                 padding: 20px 18px;
                 transition: 0.4s;

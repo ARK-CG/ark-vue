@@ -3,14 +3,25 @@
       <h1>Gallrey</h1>
       <div v-masonry transition-duration="0.6s" fit-width="True"
       class="masonry-container big" column-width="245" item-selector=".item">
-      <div v-masonry-tile class="item" v-for="item in list">
-        <div class="masonry-img">
-          <img :src="item.image" />
-        </div>
-        <div class="text">
-          <h2>{{item.title}}</h2>
-          <p class="date">{{item.date}}</p>
-          <p class="explain">{{item.context}}</p>
+      <div v-masonry-tile class="item" v-for="item in list" id="demo">
+        <div v-bind:class='{active:isActive}' v-on:click='isActive=!isActive'>
+          <div class="masonry-img">
+            <img :src="item.image" />
+          </div>
+          <div class="text">
+            <h2>{{item.title}}</h2>
+            <p class="date">{{item.date}}</p>
+          </div>
+
+          <div class="popup">
+            <div>
+              <img :src="item.image" />
+            </div>
+            <div>
+              <h2>{{item.title}}</h2>
+              <p class="date">{{item.date}}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -32,6 +43,7 @@
 
 <script>
 //https://console.firebase.google.com/
+
 import { firebaseApp } from "../firebase.init";
 import "firebase/firestore";
 var db = firebaseApp.firestore();
@@ -73,6 +85,7 @@ export default {
   },
   methods: {}
 };
+
 </script>
 
 <style scoped lang="scss">
@@ -115,10 +128,23 @@ export default {
         font-size: 10px;
       }
     }
+    .popup{
+      display: none;
+    }
+
   }
   .item:active .text{
     display: block;
   }
+}
+
+#demo{
+  .active{
+    .popup{
+      display: block;
+    }
+  }
+
 }
 
 .masonry-img{

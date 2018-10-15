@@ -108,27 +108,30 @@ export default {
 
   .navigation{
     width: 100%;
-    padding: 0 5px;
+
     background: linear-gradient(to bottom, #FfFFFF, #f0f0f0);
     .common{
       display: block;
       max-width: 1024px;
       margin: 0 auto;
     }
-    .logo{
+    #logo{
+      display: block;
     }
     .nav{
+      padding: 0 5px;
+      background: #0F2138;
       ul{
         display: flex;
-        justify-content: space-between;
+        margin: 0;
+
         list-style: none;
-        margin: 0 auto;
         max-width: 320px;
         padding: 0;
         .icon{
-          color: #555;
+          color: #fff;
           li{
-            font-size: 14px;
+            font-size: 16px;
             display: inline-block;
             padding: 12px 10px;
             transition: 0.4s;
@@ -152,7 +155,7 @@ export default {
 <style scoped>
 /*header*/
 .logo{
-  text-align: center;
+
 }
 #logo img {
   width: 60px;
