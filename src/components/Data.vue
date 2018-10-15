@@ -90,6 +90,7 @@ export default {
       }
     }
     .text{
+      display: block;
       width: 220px;
       padding: 12px 18px;
       background-color: #Fff;
@@ -114,6 +115,9 @@ export default {
         font-size: 10px;
       }
     }
+  }
+  .item:active .text{
+    display: block;
   }
 }
 

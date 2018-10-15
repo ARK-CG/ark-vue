@@ -1,121 +1,122 @@
 <template>
   <div class="swipers swiper-container">
     <swiper :options="swiperOption">
-      <swiper-slide class="submited-list">
-        <div class="list-item">
-          <div class="text">
-            <h3>タイトルが入りますタイトルが入ります</h3>
-            <p class="date">2018/9/29</p>
-            <p>テキストが入りますテキストが入ります</p>
-          </div>
-
-          <div class="delete-btn">
-            <button type="button" name="button">削除</button>
-          </div>
-        </div>
-
-        <div class="list-item">
-          <div class="text">
-            <h3>タイトルが入りますタイトルが入ります</h3>
-            <p class="date">2018/9/29</p>
-            <p>テキストが入りますテキストが入ります</p>
-          </div>
-
-          <div class="delete-btn">
-            <button type="button" name="button">削除</button>
-          </div>
-        </div>
-
-        <div class="list-item">
-          <div class="text">
-            <h3>タイトルが入りますタイトルが入ります</h3>
-            <p class="date">2018/9/29</p>
-            <p>テキストが入りますテキストが入ります</p>
-          </div>
-
-          <div class="delete-btn">
-            <button type="button" name="button">削除</button>
-          </div>
-        </div>
-      </swiper-slide>
-
-      <swiper-slide class="submited-list">
-        <div class="list-item">
-          <div class="text">
-            <h3>タイトルが入りますタイトルが入ります</h3>
-            <p class="date">2018/9/29</p>
-            <p>テキストが入りますテキストが入ります</p>
-          </div>
-
-          <div class="delete-btn">
-            <button type="button" name="button">削除</button>
-          </div>
-        </div>
-
-        <div class="list-item">
-          <div class="text">
-            <h3>タイトルが入りますタイトルが入ります</h3>
-            <p class="date">2018/9/29</p>
-            <p>テキストが入りますテキストが入ります</p>
-          </div>
-
-          <div class="delete-btn">
-            <button type="button" name="button">削除</button>
-          </div>
-        </div>
-
-        <div class="list-item">
-          <div class="text">
-            <h3>タイトルが入りますタイトルが入ります</h3>
-            <p class="date">2018/9/29</p>
-            <p>テキストが入りますテキストが入ります</p>
-          </div>
-
-          <div class="delete-btn">
-            <button type="button" name="button">削除</button>
-          </div>
-        </div>
-      </swiper-slide>
-
-      <swiper-slide class="submited-list">
-        <div class="list-item">
-          <div class="text">
-            <h3>タイトルが入りますタイトルが入ります</h3>
-            <p class="date">2018/9/29</p>
-            <p>テキストが入りますテキストが入ります</p>
-          </div>
-
-          <div class="delete-btn">
-            <button type="button" name="button">削除</button>
-          </div>
-        </div>
-
-        <div class="list-item">
-          <div class="text">
-            <h3>タイトルが入りますタイトルが入ります</h3>
-            <p class="date">2018/9/29</p>
-            <p>テキストが入りますテキストが入ります</p>
-          </div>
-
-          <div class="delete-btn">
-            <button type="button" name="button">削除</button>
-          </div>
-        </div>
-
-        <div class="list-item">
-          <div class="text">
-            <h3>タイトルが入りますタイトルが入ります</h3>
-            <p class="date">2018/9/29</p>
-            <p>テキストが入りますテキストが入ります</p>
-          </div>
-
-          <div class="delete-btn">
-            <button type="button" name="button">削除</button>
-          </div>
-        </div>
-      </swiper-slide>
-
       <div class="swiper-pagination" slot="pagination"></div>
+      <swiper-slide class="submited-list">
+        <div class="list-item">
+          <div class="text">
+            <h3>タイトルが入りますタイトルが入ります</h3>
+            <p class="date">2018/9/29</p>
+            <p>テキストが入りますテキストが入ります</p>
+          </div>
+
+          <div class="delete-btn">
+            <button type="button" name="button">削除</button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div class="text">
+            <h3>タイトルが入りますタイトルが入ります</h3>
+            <p class="date">2018/9/29</p>
+            <p>テキストが入りますテキストが入ります</p>
+          </div>
+
+          <div class="delete-btn">
+            <button type="button" name="button">削除</button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div class="text">
+            <h3>タイトルが入りますタイトルが入ります</h3>
+            <p class="date">2018/9/29</p>
+            <p>テキストが入りますテキストが入ります</p>
+          </div>
+
+          <div class="delete-btn">
+            <button type="button" name="button">削除</button>
+          </div>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide class="submited-list">
+        <div class="list-item">
+          <div class="text">
+            <h3>タイトルが入りますタイトルが入ります</h3>
+            <p class="date">2018/9/29</p>
+            <p>テキストが入りますテキストが入ります</p>
+          </div>
+
+          <div class="delete-btn">
+            <button type="button" name="button">削除</button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div class="text">
+            <h3>タイトルが入りますタイトルが入ります</h3>
+            <p class="date">2018/9/29</p>
+            <p>テキストが入りますテキストが入ります</p>
+          </div>
+
+          <div class="delete-btn">
+            <button type="button" name="button">削除</button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div class="text">
+            <h3>タイトルが入りますタイトルが入ります</h3>
+            <p class="date">2018/9/29</p>
+            <p>テキストが入りますテキストが入ります</p>
+          </div>
+
+          <div class="delete-btn">
+            <button type="button" name="button">削除</button>
+          </div>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide class="submited-list">
+        <div class="list-item">
+          <div class="text">
+            <h3>タイトルが入りますタイトルが入ります</h3>
+            <p class="date">2018/9/29</p>
+            <p>テキストが入りますテキストが入ります</p>
+          </div>
+
+          <div class="delete-btn">
+            <button type="button" name="button">削除</button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div class="text">
+            <h3>タイトルが入りますタイトルが入ります</h3>
+            <p class="date">2018/9/29</p>
+            <p>テキストが入りますテキストが入ります</p>
+          </div>
+
+          <div class="delete-btn">
+            <button type="button" name="button">削除</button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div class="text">
+            <h3>タイトルが入りますタイトルが入ります</h3>
+            <p class="date">2018/9/29</p>
+            <p>テキストが入りますテキストが入ります</p>
+          </div>
+
+          <div class="delete-btn">
+            <button type="button" name="button">削除</button>
+          </div>
+        </div>
+      </swiper-slide>
+
+
 
 
     </swiper>
@@ -132,7 +133,7 @@ export default {
         //http://idangero.us/swiper/api/
         pagination: {
           el: ".swiper-pagination",
-          type: 'progressbar'
+          dynamicBullets: true,
         },
         scrollbar: {
           el: '.swiper-scrollbar',
