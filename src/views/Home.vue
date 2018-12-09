@@ -7,7 +7,7 @@
         <table>
           <tr>
             <td>
-              <img src="../assets/carmodel.png" alt="">
+              <img src="../assets/Audi_red23.png" alt="">
             </td>
             <td>
               <img src="../assets/kaito-work1.png" alt="">
@@ -36,7 +36,7 @@
         <table>
           <tr>
             <td>
-              <img src="../assets/carmodel.png" alt="">
+              <img src="../assets/Audi_red23.png" alt="">
             </td>
             <td>
               <img src="../assets/kaito-work1.png" alt="">

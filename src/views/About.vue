@@ -18,7 +18,7 @@
       </div>
       <div class="item odd">
         <div class="img small">
-          <img src="../assets/carmodel.png" alt="">
+          <img src="../assets/Audi_red23.png" alt="">
         </div>
         <div class="texts">
           <h2>3DCG</h2>
@@ -26,7 +26,7 @@
             基本的には個人作業ですが、サークル全体で撮影なども行っています。</p>
         </div>
         <div class="img big">
-          <img src="../assets/carmodel.png" alt="">
+          <img src="../assets/Audi_red23.png" alt="">
         </div>
       </div>
 
@@ -44,7 +44,7 @@
 
       <div class="item odd web">
         <div class="img small">
-          <img src="../assets/motom-sample.png" alt="">
+          <img src="../assets/Tento-sample.png" alt="">
         </div>
         <div class="texts">
           <h2>webアプリケーション</h2>
@@ -52,7 +52,7 @@
             エンジニアコースやデザインコースのメンバーが協力してサービスを作っています。</p>
         </div>
         <div class="img big">
-          <img src="../assets/motom-sample.png" alt="">
+          <img src="../assets/Tento-sample.png" alt="">
         </div>
       </div>
     </div>

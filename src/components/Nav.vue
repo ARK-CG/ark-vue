@@ -19,6 +19,7 @@
           </ul>
         </div>
       </div>
+      
     </div>
 </template>
 
@@ -123,8 +124,7 @@ export default {
       background: #0F2138;
       ul{
         display: flex;
-        margin: 0;
-
+        margin: 0 auto;
         list-style: none;
         max-width: 320px;
         padding: 0;

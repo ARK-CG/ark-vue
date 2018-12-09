@@ -10,6 +10,7 @@
           </div>
           <div class="text">
             <h2>{{item.title}}</h2>
+            <p class="context">{{item.context}}</p>
             <p class="date">{{item.date}}</p>
           </div>
 
@@ -20,6 +21,7 @@
             <div>
               <h2>{{item.title}}</h2>
               <p class="date">{{item.date}}</p>
+              <p class="date">{{item.context}}</p>
             </div>
           </div>
         </div>
@@ -35,6 +37,7 @@
       <div class="text">
         <h2>{{item.title}}</h2>
         <p class="date">{{item.date}}</p>
+
       </div>
     </div>
   </div>
@@ -125,7 +128,11 @@ export default {
         margin: 4px 0 0;
       }
       .date{
+        float: right;
         font-size: 10px;
+      }
+      .context{
+        font-size: 13px;
       }
     }
     .popup{

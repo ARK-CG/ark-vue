@@ -97,7 +97,7 @@ export default {
       background-size: cover;
     }
     .first{
-      background-image: url(../assets/carmodel.png);
+      background-image: url(../assets/Audi_red23.png);
     }
     .second{
       background-image: url(../assets/kaito-work2.png);
@@ -163,7 +163,7 @@ export default {
       background-size: cover;
     }
     .first{
-      background-image: url(../assets/carmodel.png);
+      background-image: url(../assets/Audi_red23.png);
     }
     .second{
       background-image: url(../assets/kaito-work2.png);
