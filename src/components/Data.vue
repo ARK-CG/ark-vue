@@ -133,6 +133,8 @@ export default {
       }
       .context{
         font-size: 13px;
+        white-space: pre-wrap;
+        word-break: break-word;
       }
     }
     .popup{

@@ -98,12 +98,18 @@ export default {
     }
     .first{
       background-image: url(../assets/Audi_red23.png);
+      background-size: cover;
+      background-position: center;
     }
     .second{
       background-image: url(../assets/kaito-work2.png);
+      background-size: cover;
+      background-position: center;
     }
     .third{
       background-image: url(../assets/kaito-work1.png);
+      background-size: cover;
+      background-position: center;
     }
 
   }
@@ -164,12 +170,18 @@ export default {
     }
     .first{
       background-image: url(../assets/Audi_red23.png);
+      background-size: cover;
+      background-position: center;
     }
     .second{
       background-image: url(../assets/kaito-work2.png);
+      background-size: cover;
+      background-position: center;
     }
     .third{
       background-image: url(../assets/kaito-work1.png);
+      background-size: cover;
+      background-position: center;
     }
 
   }
