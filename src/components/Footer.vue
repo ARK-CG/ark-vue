@@ -1,15 +1,9 @@
 <template id="">
-  <footer>
-    <div class="nav">
-      <ul>
-        <router-link class="icon icon-layers" to="/about"><li>＞ About</li> </router-link>
-        <router-link class="icon icon-layers" to="/gallery"><li>＞ Gallery</li> </router-link>
-        <router-link class="icon icon-layers" to="/news"><li>＞ News</li> </router-link>
-        <router-link class="icon icon-layers" to="/member"><li>＞ For member</li> </router-link>
-      </ul>
+  <footer class="footer">
+    <div class="img">
 
-      <p>©  2018 ARK. All Rights Reserved.</p>
     </div>
+    <router-link class="icon icon-layers member" to="/member"><p>メンバーはこちらから</p> </router-link>
   </footer>
 </template>
 
@@ -40,33 +34,23 @@ export default {
 };
 </script>
 
-<style lang="scss">
-  footer{
-    background: #0F2138;
-    text-align: center;
-    .nav{
-      padding: 25px 0 15px;
-      text-align: center;
-      display: block;
-      a{
-        margin: 0 15px;
-      }
-      ul{
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        li{
-          color: #fff;
-          font-size: 12px;
-          display: inline-block;
-        }
-      }
-      p{
-        margin: 20px 0 0;
-        color: rgba(255,255,255,0.6);
-        font-size: 12px;
-        font-weight: lighter;
-      }
-    }
+<style>
+  .footer{
+    background-color: #1f1f1f;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  .member {
+    margin-left: auto;
+  }
+  .footer p {
+    font-size: 14px;
+    color: #fff;
+    margin:0;
+    font-weight: normal;
+  }
+  footer img {
+    width: 80px;
   }
 </style>

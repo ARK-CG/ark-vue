@@ -279,7 +279,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style>
 /*未ログイン状態*/
 @media screen and (min-width: 767px) {
   .big {

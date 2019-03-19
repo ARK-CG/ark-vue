@@ -46,7 +46,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style>
 @media screen and (min-width: 767px) {
   .small{
     display: none;

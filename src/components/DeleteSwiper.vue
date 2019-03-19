@@ -154,7 +154,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 .swiper-container{
   margin: 12.5px 0 0;
   height: 500px;

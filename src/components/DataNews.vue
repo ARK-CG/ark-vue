@@ -1,6 +1,7 @@
 <template>
     <div class="data">
-      <h2>News</h2>
+      <h1>News</h1>
+      <p class="border_deco"></p>
         <div class="contents fade-in">
             <div class="content">
               <div class="row" v-for="item in list" :key="item.id">
@@ -68,11 +69,14 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style>
 
 /*media-query*/
 
 @media screen and (min-width: 767px) {
+  .data {
+    min-height: 110vh;
+  }
   .big {
     display: block;
   }
@@ -81,125 +85,139 @@ export default {
     display: none;
   }
 
-  .data{
-    h2{
-      font-size: 28px;
-      text-align: left;
-      display: block;
-      margin: 0;
-    }
-    .contents{
-      margin-top: 32px;
-      .row {
-        margin: 0 auto;
-        margin-bottom: 25px;
-        background: #fff;
-        padding: 15px;
-        .item{
-          display: flex;
-          align-items: center;
-          .img {
-            width: 200px;
-            border: solid 0.5px rgba(0, 0, 0, 0.3);
-            img {
-              width: 100%;
-              display: block;
-            }
-          }
-          .text{
-            flex: 1;
-            margin-left: 35px;
-            text-align: left;
-            max-width: 800px;
-            h3 {
-              font-size: 18px;
-              font-weight: bold;
-            }
-            p{
-              margin: 0;
-              text-align: left;
-              font-size: 14px;
-            }
-            .date{
-              color: #888;
-              text-align: left;
-              font-size: 12px;
-              margin-bottom: 14px;
-            }
-            .context{
-              line-height: 180%;
-            }
-          }
-        }
-      }
-    }
+  .data h1 {
+    font-weight: bold;
+    color: #1f1f1f;
+    margin-bottom: 3rem;
+    text-align: center;
+    max-width: 1004px;
+    margin: 5rem auto 1rem;
   }
+  .data .border_deco {
+    width: 60px;
+    border-bottom: solid 5px #c30d23;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+  }
+
+.data .row {
+  margin: 0 auto;
+  margin-bottom: 8rem;
+  padding: 2rem;
+  border-bottom: solid 2px #1f1f1f;
+  border-left: solid 2px #1f1f1f;
+}
+.data .row .item{
+  display: flex;
+  align-items: center;
+}
+.data .row .item .img {
+  width: 200px;
+  border: solid 0.5px rgba(0, 0, 0, 0.3);
+}
+.data .row .item .img img {
+  width: 100%;
+  display: block;
+}
+.data .row .item .text {
+  flex: 1;
+  margin-left: 35px;
+  text-align: left;
+  max-width: 800px;
+}
+.data .row .item .text h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.data .row .item .text p{
+  margin: 0;
+  text-align: left;
+  font-size: 14px;
+}
+.data .row .item .text .date{
+  color: #888;
+  text-align: left;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+.data .row .item .text .context{
+  line-height: 180%;
+  white-space: pre-wrap;
 }
 
+}
 @media screen and (max-width: 767px) {
-  .big{
-    display: none;
+  .data {
+    min-height: 110vh;
   }
-  .small {
+  .big {
     display: block;
   }
 
-  .data{
-    h2{
-      font-size: 28px;
-      text-align: left;
-      display: block;
-      margin: 0 auto;
-      max-width: 310px;
-    }
-    .contents{
-      margin-top: 32px;
-      .row {
-        margin: 0 auto 0px;
-        margin-bottom: 65px;
-        background: transparent;
-        padding: 0;
-        .item{
-          display: block;
-          margin: 0 auto;
-          max-width: 310px;
-          .img {
-            width: 100%;
-            border: solid 0.5px rgba(0, 0, 0, 0.3);
-            img {
-              width: 100%;
-              display: block;
-            }
-          }
-          .text{
-            text-align: left;
-            max-width: 310px;
-            margin-top: 20px;
-            h3 {
-              font-size: 22px;
-              font-weight: bold;
-            }
-            p{
-              margin: 0;
-              text-align: left;
-              font-size: 14px;
-            }
-            .date{
-              color: #999;
-              text-align: right;
-              margin-top: 8px;
-            }
-            .context{
-              line-height: 180%;
-              vertical-align: top;
-              font-size: 14px;
-              margin: 0;
-            }
-          }
-        }
-      }
-    }
+  .small{
+    display: none;
   }
+
+  .data h1 {
+    font-weight: bold;
+    color: #1f1f1f;
+    margin-bottom: 3rem;
+    text-align: center;
+    max-width: 1004px;
+    margin: 5rem auto 1rem;
+  }
+  .data .border_deco {
+    width: 60px;
+    border-bottom: solid 5px #c30d23;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+  }
+
+.data .row {
+  margin: 0 auto;
+  margin-bottom: 4rem;
+  padding: 2rem;
+  border-bottom: solid 2px #1f1f1f;
+  border-left: solid 2px #1f1f1f;
+  max-width: 600px;
+}
+.data .row .item{
+  display: block;
+  align-items: center;
+}
+.data .row .item .img {
+  width: 100%;
+  margin: 0 auto;
+  border: solid 0.5px rgba(0, 0, 0, 0.3);
+}
+.data .row .item .img img {
+  width: 100%;
+  display: block;
+}
+.data .row .item .text {
+  text-align: left;
+  max-width: 800px;
+  margin: 0.5rem
+}
+.data .row .item .text h3 {
+  font-size: 14px;
+  font-weight: bold;
+}
+.data .row .item .text p{
+  margin: 0;
+  text-align: left;
+  font-size: 13px;
+}
+.data .row .item .text .date{
+  color: #888;
+  text-align: left;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+.data .row .item .text .context{
+  line-height: 180%;
+  white-space: pre-wrap;
+}
 
 
 }

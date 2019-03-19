@@ -1,28 +1,18 @@
 <template>
     <div class="data">
-      <h1>Gallrey</h1>
+      <h1>Works</h1>
+      <p class="border_deco"></p>
       <div v-masonry transition-duration="0.6s" fit-width="True"
       class="masonry-container big" column-width="245" item-selector=".item">
       <div v-masonry-tile class="item" v-for="item in list" id="demo">
-        <div v-bind:class='{active:isActive}' v-on:click='isActive=!isActive'>
+        <div>
           <div class="masonry-img">
             <img :src="item.image" />
           </div>
           <div class="text">
             <h2>{{item.title}}</h2>
-            <p class="context">{{item.context}}</p>
-            <p class="date">{{item.date}}</p>
-          </div>
-
-          <div class="popup">
-            <div>
-              <img :src="item.image" />
-            </div>
-            <div>
-              <h2>{{item.title}}</h2>
-              <p class="date">{{item.date}}</p>
-              <p class="date">{{item.context}}</p>
-            </div>
+            <!-- <p class="context">{{item.context}}</p>
+            <p class="date">{{item.date}}</p> -->
           </div>
         </div>
       </div>
@@ -36,8 +26,6 @@
       </div>
       <div class="text">
         <h2>{{item.title}}</h2>
-        <p class="date">{{item.date}}</p>
-
       </div>
     </div>
   </div>
@@ -91,76 +79,64 @@ export default {
 
 </script>
 
-<style scoped lang="scss">
+<style>
+.data {
+  min-height: 110vh;
+}
+
+.data h1 {
+  font-weight: bold;
+  color: #1f1f1f;
+  margin-bottom: 3rem;
+  text-align: center;
+  max-width: 1004px;
+  margin: 5rem auto 1rem;
+}
+.data .border_deco {
+  width: 60px;
+  border-bottom: solid 5px #c30d23;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+}
 .masonry-container{
-  max-width: 1024px;
+  max-width: 1004px;
   margin: 30px auto;
-  .item{
-    margin: 0 8px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 2px gray;
-    border-radius: 5px;
-    .masonry-img{
-      img{
-        border-radius: 5px 5px 0 0;
-      }
-    }
-    .text{
-      display: block;
-      width: 220px;
-      padding: 12px 18px;
-      background-color: #Fff;
-      border-radius: 5px;
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
-      overflow: hidden;
-      h2{
-        font-size: 14px;
-        font-weight: bold;
-        margin: 0 0 2px;
-      }
-      p{
-        font-size: 12px;
-        margin: 0;
-        color: #555;
-      }
-      .explain{
-        margin: 4px 0 0;
-      }
-      .date{
-        float: right;
-        font-size: 10px;
-      }
-      .context{
-        font-size: 13px;
-        white-space: pre-wrap;
-        word-break: break-word;
-      }
-    }
-    .popup{
-      display: none;
-    }
-
-  }
-  .item:active .text{
-    display: block;
-  }
 }
-
-#demo{
-  .active{
-    .popup{
-      display: block;
-    }
-  }
-
-}
-
-.masonry-img{
+.masonry-container .item{
+  margin: 0 8px;
+  margin-bottom: 2rem;
   width: 220px;
-  img{
-    width: 100%;
-  }
+}
+.masonry-container .item .masonry-img{
+  width: 220px;
+}
+.masonry-container .item .masonry-img img{
+  width: 100%;
+}
+.masonry-container .item .text{
+}
+.masonry-container .item .text h2{
+  font-size: 14px;
+  color: #1f1f1f;
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+.masonry-container .item .text p{
+  font-size: 12px;
+  margin: 0;
+  color: #555;
+}
+.masonry-container .item .text .explain{
+  margin: 4px 0 0;
+}
+.masonry-container .item .text .date{
+  float: right;
+  font-size: 10px;
+}
+.masonry-container .item .text .context{
+  font-size: 13px;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
   .big{
     display: block;
@@ -170,66 +146,71 @@ export default {
     display: none;
   }
 
-h1{
-  text-align: left;
-  font-size: 28px;
-  padding: 0 8px;
-}
-
 
 /*media-query*/
 @media screen and (max-width: 767px) {
+  .data h1 {
+    font-weight: bold;
+    color: #1f1f1f;
+    margin-bottom: 3rem;
+    text-align: center;
+    max-width: 1004px;
+    margin: 5rem auto 1rem;
+    font-size: 1.5rem;
+  }
+  .data .border_deco {
+    width: 60px;
+    border-bottom: solid 5px #c30d23;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+  }
+  .masonry-container{
+    max-width: 1004px;
+    margin: 30px auto;
+  }
+  .masonry-container .item{
+    width: 156px;
+    margin: 0 8px;
+    margin-bottom: 2rem;
+  }
+  .masonry-container .item .masonry-img{
+    width: 156px;
+  }
+  .masonry-container .item .masonry-img img{
+    width: 100%;
+  }
+  .masonry-container .item .text{
+  }
+  .masonry-container .item .text h2{
+    font-size: 14px;
+    color: #1f1f1f;
+    margin: 0.5rem 0;
+    font-weight: bold;
+  }
+  .masonry-container .item .text p{
+    font-size: 12px;
+    margin: 0;
+    color: #555;
+  }
+  .masonry-container .item .text .explain{
+    margin: 4px 0 0;
+  }
+  .masonry-container .item .text .date{
+    float: right;
+    font-size: 10px;
+  }
+  .masonry-container .item .text .context{
+    font-size: 13px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+
   .big{
     display: none;
   }
   .small {
     display: block;
-  }
-
-  .masonry-container{
-    width: 800px;
-    margin: 30px auto;
-    width: auto;
-    .item{
-      margin-bottom: 20px;
-      .text{
-        width: 156px;
-        padding: 12px 6px;
-        background-color: #fdfdfd;
-        border-radius: 5px;
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-        overflow: hidden;
-        h2{
-          font-size: 12px;
-          font-weight: bold;
-          margin: 0 0 2px;
-        }
-        p{
-          font-size: 11px;
-          margin: 0;
-        }
-        .category{
-          color: #1E90FF;
-        }
-        .explain{
-          margin: 4px 0 0;
-          color: #777;
-        }
-        .date{
-          color: #ccc;
-          font-size: 9px;
-        }
-      }
-    }
-  }
-
-  .masonry-img{
-    width: 156px;
-    margin: 0 auto;
-    img{
-      width: 100%;
-    }
   }
 }
 

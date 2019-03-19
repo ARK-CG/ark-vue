@@ -2,24 +2,20 @@
     <div class="navigation">
       <div class="common">
         <div class="logo">
-          <a href="#">
-            <router-link  id="logo" to="/">
-              <img src="../assets/logo.png" alt="">
-            </router-link>
-          </a>
+          <router-link  id="logo" to="/">
+            <img src="../assets/arklogo01.png" alt="">
+          </router-link>
         </div>
 
         <div class="nav">
           <ul>
-            <router-link class="icon icon-layers" to="/about"><li>About</li> </router-link>
-            <router-link class="icon icon-layers" to="/gallery"><li>Gallery</li> </router-link>
-            <router-link class="icon icon-layers" to="/news"><li>News</li> </router-link>
-            <router-link class="icon icon-layers" to="/member"><li>For member</li> </router-link>
-
+            <router-link class="icon icon-layers link" to="/" id="home_link"><li>Home</li> </router-link>
+            <router-link class="icon icon-layers link" to="/gallery" id="works_link"><li>Works</li> </router-link>
+            <router-link class="icon icon-layers link" to="/news" id="news_link" ><li>News</li> </router-link>
           </ul>
         </div>
       </div>
-      
+
     </div>
 </template>
 
@@ -50,53 +46,75 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 @media screen and (min-width: 767px) {
   .big {
     display: block;
   }
-
   .small{
     display: none;
   }
 
 .navigation{
   width: 100%;
-  padding: 0 62px;
-  background: linear-gradient(to bottom, #FfFFFF, #f0f0f0);
+  padding: 1rem;
+  position: absolute;
+}
   .common{
     display: flex;
     align-items: center;
-    max-width: 1024px;
+    max-width: 1004px;
     margin: 0 auto;
   }
-  .logo{
-  }
-  .nav{
-    ul{
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      .icon{
-        color: #555;
-        li{
-          font-size: 16px;
-          display: inline-block;
-          padding: 20px 18px;
-          transition: 0.4s;
-        }
-      }
-      .icon:hover li{
-        background: linear-gradient(to bottom, #f2f2f2, #dfdfdf);
-        transition: 0.4s;
-      }
-    }
-  }
-  .nav:last-of-type{
-    margin-left: auto;
-  }
-}
 
+  .common .logo #logo img{
+    width: 100px;
+  }
+  .nav {
+    margin-left: auto;
+
+  }
+  .nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  .icon{
+    color: #1f1f1f;
+    font-weight: bold;
+    }
+    li{
+      font-size: 16px;
+      padding: 0.5rem;
+      border-bottom: solid 2px rgba(0,0,0,0);
+      transition: 0.2s;
+    }
+
+    .nav ul .link{
+      margin-left: 1rem;
+      text-decoration: none;
+    }
+
+    #home_link li:hover {
+      border-bottom: solid 2px #1f1f1f;
+      transition: 0.2s;
+    }
+
+    #works_link li:hover {
+      border-bottom: solid 2px #1f1f1f;
+      transition: 0.2s;
+    }
+
+    #news_link li:hover {
+      border-bottom: solid 2px #1f1f1f;
+      transition: 0.2s;
+    }
+
+    a:hover {
+      text-decoration: none !important;
+      color: #1f1f1f !important;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -109,44 +127,38 @@ export default {
 
   .navigation{
     width: 100%;
-
-    background: linear-gradient(to bottom, #FfFFFF, #f0f0f0);
+    padding: 1rem;
+    position: absolute;
+  }
     .common{
-      display: block;
-      max-width: 1024px;
+      display: flex;
+      align-items: center;
+      max-width: 1004px;
       margin: 0 auto;
     }
-    #logo{
-      display: block;
+
+    .common .logo #logo img{
+      width: 60px;
     }
-    .nav{
-      padding: 0 5px;
-      background: #0F2138;
-      ul{
-        display: flex;
-        margin: 0 auto;
-        list-style: none;
-        max-width: 320px;
-        padding: 0;
-        .icon{
-          color: #fff;
-          li{
-            font-size: 16px;
-            display: inline-block;
-            padding: 12px 10px;
-            transition: 0.4s;
-          }
-        }
-        .icon:hover li{
-          background: transparent;
-          transition: 0.4s;
-        }
-      }
-    }
-    .nav:last-of-type{
+    .nav {
       margin-left: auto;
+
     }
-  }
+    .nav ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    .icon{
+      color: #1f1f1f;
+      font-weight: bold;
+      }
+      li{
+        font-size: 16px;
+        margin-left: 0.5rem;
+        padding: 0.5rem;
+      }
 
 }
 </style>
