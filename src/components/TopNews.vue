@@ -25,7 +25,7 @@
     </div>
 </template>
 
-<style scoped lang="scss">
+<style >
 /*media-query*/
 @media screen and (min-width: 767px) {
   .small{

@@ -1,36 +1,37 @@
 <template>
   <div id="app">
-
+    <Nav />
     <router-view/>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Footer from "@/components/Footer.vue";
+import Nav from "@/components/Nav.vue";
 export default {
   components: {
+    Nav,
     Footer
   }
 };
 </script>
 
 
-<style lang="scss">
+<style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #555;
+  color: #1f1f1f;
 }
-// #nav {
-//   padding: 30px;
-//   a {
-//     font-weight: bold;
-//     color: #313131;
-//     &.router-link-exact-active {
-//       color: #4272b9;
-//     }
-//   }
-// }
+
+a {
+  text-decoration: none;
+  color: #1f1f1f;
+}
+a:hover {
+  text-decoration: none !important;
+  color: #1f1f1f !important;
+}
 </style>

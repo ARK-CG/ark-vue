@@ -251,7 +251,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style>
 @media screen and (min-width: 767px) {
 .big{
   display: block;

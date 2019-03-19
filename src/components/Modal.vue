@@ -19,7 +19,7 @@
 
 </script>
 
-<style lang="scss" scoped>
+<style>
 .modal {
   &.modal-overlay {
     display: flex;

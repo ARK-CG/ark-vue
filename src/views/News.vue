@@ -32,7 +32,7 @@ export default {
 }
 
 .news {
-  background: #fafafa;
+  background: #fff;
 }
 
 @media screen and (max-width: 767px) {
