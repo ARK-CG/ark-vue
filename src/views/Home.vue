@@ -30,6 +30,40 @@
       </div>
     </div>
 
+    <div class="event">
+      <div class="img">
+        <p class="tag">イベント</p>
+        <img src="../assets/event.png" alt="">
+      </div>
+      <div class="content">
+        <h2>サークル新入生説明会</h2>
+        <div class="text">
+          <div class="item">
+            <h3>日時</h3>
+            <div class="text">
+              <p>4月24日（水曜日)</p>
+              <div class="">
+                <p>第一部 16:30~17:00</p>
+                <p>第一部 17:15~17:45</p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <h3>場所</h3>
+            <div class="text">
+              <p>赤羽台キャンパス　2階食堂</p>
+            </div>
+          </div>
+          <div class="item">
+            <h3>持ち物</h3>
+            <div class="text">
+              <p>スマートフォン</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="feature">
       <div class="img odd small" v-bind:class="{ active_img01: isActive01}">
         <img src="../assets/newlp.png" alt="" style="width:100%">
@@ -276,6 +310,49 @@ export default {
   }
 }
 @media screen and (min-width: 767px) {
+  .event {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .event .tag {
+    color: #fff;
+    background-color: #c30d23;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .event .img {
+    max-width: 50%;
+  }
+  .event .img img {
+    max-width: 100%;
+  }
+
+  .event .content h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .event .content p {
+    margin: 0;
+  }
+
+  .event .content .item {
+    margin-bottom: 0.8rem;
+  }
+
+  .event .content .item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
 
 .st0 {
   animation: charctor01 5s ease-in 0s;
@@ -477,6 +554,52 @@ export default {
 }
 
 @media screen and (max-width: 767px) {
+  .event {
+    max-width: 600px;
+    margin: 5rem auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .event .tag {
+    color: #fff;
+    background-color: #c30d23;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .event .img {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .event .img img {
+    max-width: 100%;
+  }
+
+  .event .content h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .event .content p {
+    margin: 0;
+  }
+
+  .event .content .item {
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
+
+  .event .content .item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
   .st0 {
     animation: charctor01 5s ease-in 0s;
     stroke:#1D1E1E;
